@@ -4,5 +4,11 @@
 @import "reset.scss";
 
 .app{
-    font-size: 30px;
+    font: var(--font-m);
+    color: var(--primary-color);
+    background: var(--bg-color);
+
+    min-height: 100vh;
+   
+
 }
