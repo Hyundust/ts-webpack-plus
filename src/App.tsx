@@ -8,7 +8,7 @@ import { classNames } from './helpers/classNames/classNames'
 
 function App() {
 
-    // Destructuring theme and toggleTheme functions of 'useTheme' hook.
+    // Destructuring theme and toggleThem functions of 'useTheme' hook.
     const {theme,toggleTheme} = useTheme();
 
     return (
