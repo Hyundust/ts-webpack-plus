@@ -2,8 +2,8 @@
 import { FC, useMemo, useState, ReactNode } from 'react'
 
 // Importing LOCAL_STORAGE_THEME_KEY and Theme enums from the themeContext file.
-import { LOCAL_STORAGE_THEME_KEY, ThemeContext } from './themeContext'
-import { Theme } from './themeContext';
+import { LOCAL_STORAGE_THEME_KEY, ThemeContext,Theme } from "../lib/themeContext";
+
 
 // Assigning the locally stored value of theme preference to the defaultTheme variable. If there is no stored theme preference, the default value will be Light Theme.
 const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme || Theme.Light;

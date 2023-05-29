@@ -11,10 +11,10 @@ type Mods = Record<string, boolean | string>;
  * @param additional - An array of additional class names.
  * @returns A string containing all the class names concatenated together.
  */
-export function classNames(cls: string, mods: Mods, additional: string[]): string {
+export function classNames(cls: string, mods: Mods={}, additional: string[]=[]): string {
   return [
     cls, // Add the base class to the beginning of the array.
-    ...additional, // Spread the additional classes array into the array.
+    ...additional.filter(Boolean), // Spread the additional classes array into the array.
     ...Object.entries(mods) // Convert the object into an array of [key, value] pairs.
       .filter(([, value]) => Boolean(value)) // Filter out entries with falsy (false, 0, "", null, undefined, NaN) values.
       .map(([classNames]) => classNames) // Extract only the class name strings from the remaining entries.

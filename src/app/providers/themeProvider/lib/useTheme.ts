@@ -1,6 +1,6 @@
 // Importing the useContext hook from React and importing LOCAL_STORAGE_THEME_KEY, ThemeContext, and Theme enums from the themeContext file.
 import { useContext } from "react";
-import { LOCAL_STORAGE_THEME_KEY, ThemeContext, Theme } from "./themeContext";
+import { LOCAL_STORAGE_THEME_KEY, ThemeContext, Theme } from "app/providers/themeProvider/lib/themeContext";
 
 // Defining an interface called UseThemeResult, which has two properties: toggleTheme function and theme property.
 interface UseThemeResult {

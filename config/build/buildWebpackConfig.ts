@@ -36,7 +36,7 @@ export function buildWebpackConfig(options:BuildOptions): webpack.Configuration{
         },
 
         // Adding configurations for resolving modules
-        resolve: buildResolvers(),
+        resolve: buildResolvers(options),
         devtool:isDev?"inline-source-map":undefined,
         devServer:isDev?buildDevServer(options):undefined
      }
