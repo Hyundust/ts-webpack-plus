@@ -12,7 +12,27 @@ export function BuildLoaders({isDev}:BuildOptions):webpack.RuleSetRule[]
         use: 'ts-loader',
         exclude: /node_modules/,
       }
-      const cssLoader = {
+
+      
+    const svgLoader = {
+      test: /\.svg$/,
+      use: ['@svgr/webpack'],
+    }
+
+
+    const fileLoader = {
+      
+        test: /\.(png|jpe?g|gif|woff2|woff)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      }
+    
+
+
+    const cssLoader = {
         test: /\.s[ac]ss$/i,
         use: [
           // Creates `style` nodes from JS strings
@@ -38,7 +58,9 @@ export function BuildLoaders({isDev}:BuildOptions):webpack.RuleSetRule[]
       }
    return [
             typescriptLoader,
-            cssLoader
+            cssLoader,
+            svgLoader,
+            fileLoader
 
       ]
 }

@@ -7,7 +7,20 @@ function AppRouter() {
     <Suspense fallback = {<div>Loading...</div>}>
              <Routes> {/* Where to render the components based on the given paths */}
                     {Object.values(RouteConfig).map(({element,path})=>(
-                        <Route key={path}element = {element} path = {path}/>
+                        <Route 
+                                key={path}
+                                path = {path}
+                                element ={( 
+                                <Suspense fallback = {<div>Loading...</div>}>
+                                    <div className='page-wrapper'>
+                                        {element} 
+                                    </div>
+                                   
+                                </Suspense>)}
+                                
+                               
+                               
+                            />
                     ))  }  
             </Routes>
     </Suspense>

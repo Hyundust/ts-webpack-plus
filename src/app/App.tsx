@@ -5,19 +5,21 @@ import { useTheme } from './providers/themeProvider' // importing hook for manag
 import { classNames } from 'shared/lib/classNames/classNames'
 import { AppRouter } from './providers/router'
 import { Navbar } from 'widgets/NavBar'
+import { SideBar } from 'widgets/SideBar'
+
 function App() {
 
     // Destructuring theme and toggleThem functions of 'useTheme' hook.
-    const {theme,toggleTheme} = useTheme();
+    const {theme} = useTheme();
 
     return (
         
         <div className={classNames("app",{hovered:true,selected:false},[theme,"class2"])}> {/*Adding a div with class name app, and the theme class obtained from the hook*/}
             <Navbar/>
-
-            <button onClick={toggleTheme}>Choose your side </button> {/*A button for toggling the themes*/}
-
-            <AppRouter/>
+            <div className='content-page'>
+                <SideBar/>
+                <AppRouter/>
+            </div>
         </div>
     )
 }
