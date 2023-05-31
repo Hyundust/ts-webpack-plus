@@ -1,5 +1,5 @@
-import AboutPage from "./ui/AboutPage";
-import MainPage from "./ui/MainPage";
+import AboutPage from './ui/AboutPage'
+import MainPage from './ui/MainPage'
 
 export {
     AboutPage,

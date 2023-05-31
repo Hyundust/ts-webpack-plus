@@ -1,5 +1,5 @@
 // Define a type Mods as a Record with string keys and boolean/string values
-type Mods = Record<string, boolean | string>;
+type Mods = Record<string, boolean | string>
 
 /**
  * A function to generate a class name string from a base class name,
@@ -11,15 +11,15 @@ type Mods = Record<string, boolean | string>;
  * @param additional - An array of additional class names.
  * @returns A string containing all the class names concatenated together.
  */
-export function classNames(cls: string, mods: Mods={}, additional: string[]=[]): string {
-  return [
-    cls, // Add the base class to the beginning of the array.
-    ...additional.filter(Boolean), // Spread the additional classes array into the array.
-    ...Object.entries(mods) // Convert the object into an array of [key, value] pairs.
-      .filter(([, value]) => Boolean(value)) // Filter out entries with falsy (false, 0, "", null, undefined, NaN) values.
-      .map(([classNames]) => classNames) // Extract only the class name strings from the remaining entries.
-  ].join(" "); // Concatenate all the strings with a space character in between.
+export function classNames (cls: string, mods: Mods = {}, additional: string[] = []): string {
+    return [
+        cls, // Add the base class to the beginning of the array.
+        ...additional.filter(Boolean), // Spread the additional classes array into the array.
+        ...Object.entries(mods) // Convert the object into an array of [key, value] pairs.
+            .filter(([, value]) => Boolean(value)) // Filter out entries with falsy (false, 0, "", null, undefined, NaN) values.
+            .map(([classNames]) => classNames) // Extract only the class name strings from the remaining entries.
+    ].join(' ') // Concatenate all the strings with a space character in between.
 }
 
 // Call the function with arguments to generate a class name string.
-classNames("remove-btn", { selectable: true, red: true }, ["pdg"]);
+classNames('remove-btn', { selectable: true, red: true }, ['pdg'])

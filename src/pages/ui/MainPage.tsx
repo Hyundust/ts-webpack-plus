@@ -1,19 +1,16 @@
 
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next'
 
-function MainPage() {
+function MainPage () {
+    const { t } = useTranslation()
 
-  const {t}  = useTranslation();
+    return (
+        <div>
 
+            {t('Chasing')}
 
-  return (
-    <div>
-
-
-      {t("Chasing")}
-      
-      </div>
-  )
+        </div>
+    )
 }
 
 export default MainPage
