@@ -5,7 +5,7 @@ import { BuildOptions } from "./types/config";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 // Defining a function called buildPlagins that takes an object with paths property and returns an array of Webpack plugins.
-export function buildPlagins({paths}:BuildOptions): webpack.WebpackPluginInstance[] {
+export function buildPlagins({paths,isDev}:BuildOptions): webpack.WebpackPluginInstance[] {
     
     // Returning an array of three plugins: 
     // 1) HtmlWebpackPlugin which is responsible for generating an HTML file with script and link tags to include bundles.
@@ -17,6 +17,10 @@ export function buildPlagins({paths}:BuildOptions): webpack.WebpackPluginInstanc
         new MiniCssExtractPlugin({
             filename:"css/[name].[contenthash:8].css",
             chunkFilename:"css/[name].[contenthash:8].css"
-        })
+        }),
+        new webpack.DefinePlugin({
+            "__IS_DEV__": JSON.stringify(isDev)
+        }),
+        new webpack.HotModuleReplacementPlugin(),
     ]
 }

@@ -10,6 +10,7 @@ export function buildDevServer(options:BuildOptions):DevServerConfiguration{
         // Setting the 'open' property to true, which opens the project in default browser automatically.
         open :true,
         // Setting up fallback to index.html file for deep-linking support in your application.
-        historyApiFallback:true
+        historyApiFallback:true,
+        hot:true
     }
 }
