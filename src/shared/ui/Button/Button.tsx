@@ -24,7 +24,7 @@ export const Button: FC<ButtonProps> = (props) => {
     // Rendering a button element with appropriate classes using classNames utility function
     return (
         <button
-            className={classNames(cls.Button, {}, [className, cls[theme ?? '']])}
+            className={classNames(cls.button, {}, [className, cls[theme ?? '']])}
             {...otherProps}
         >
             {/* Rendering the child elements of Button */}

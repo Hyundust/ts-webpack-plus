@@ -11,6 +11,5 @@ export function buildDevServer (options: BuildOptions): DevServerConfiguration {
         open: true,
         // Setting up fallback to index.html file for deep-linking support in your application.
         historyApiFallback: true,
-        hot: true
     }
 }
