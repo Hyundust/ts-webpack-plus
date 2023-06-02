@@ -31,7 +31,10 @@ module.exports = {
         'react/jsx-props-no-spreading': 'warn',
         'react/function-component-definition': 'off',
         'import/extensions': 'off',
-        'prefer-nullish-coalescing': 'off'
-
+        'prefer-nullish-coalescing': 'off',
+        '@typescript-eslint/prefer-nullish-coalescing': 'off',
+        '@typescript-eslint/explicit-function-return-type': 'off',
+        '@typescript-eslint/no-unused-vars': 'off',
+        '@typescript-eslint/strict-boolean-expressions': 'off'
     }
 }

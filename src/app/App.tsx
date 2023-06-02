@@ -7,6 +7,7 @@ import { Navbar } from 'widgets/NavBar'
 import { SideBar } from 'widgets/SideBar'
 import { Suspense } from 'react'
 
+
 const App = () => {
     // Destructuring theme and toggleThem functions of 'useTheme' hook.
     const { theme } = useTheme()
