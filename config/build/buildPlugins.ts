@@ -3,6 +3,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin'
 import webpack from 'webpack'
 import { type BuildOptions } from './types/config'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import {BundleAnalyzerPlugin} from "webpack-bundle-analyzer"
 
 // Defining a function called buildPlagins that takes an object with paths property and returns an array of Webpack plugins.
 export function buildPlagins ({ paths, isDev }: BuildOptions): webpack.WebpackPluginInstance[] {
@@ -19,6 +20,11 @@ export function buildPlagins ({ paths, isDev }: BuildOptions): webpack.WebpackPl
         }),
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev)
-        })
+        }),
+        new BundleAnalyzerPlugin(
+            {
+                openAnalyzer:false
+            }
+        )
     ]
 }

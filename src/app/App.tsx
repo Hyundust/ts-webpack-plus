@@ -5,12 +5,12 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import { AppRouter } from './providers/router'
 import { Navbar } from 'widgets/NavBar'
 import { SideBar } from 'widgets/SideBar'
-import { Suspense } from 'react'
+import { Suspense, useEffect } from 'react'
 
 
 const App = () => {
     // Destructuring theme and toggleThem functions of 'useTheme' hook.
-    const { theme } = useTheme()
+    const { theme } = useTheme();
 
     return (
 

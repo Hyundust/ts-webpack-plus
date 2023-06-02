@@ -10,10 +10,10 @@ import { ErrorBoundary } from 'app/providers/ErrorBoundary'
 const root = ReactDOM.createRoot(document.getElementById('root')!)
 
 root.render(
-    <BrowserRouter>
-        <ErrorBoundary>
+    <ErrorBoundary>
+        <BrowserRouter>
                 <ThemeProvider>
                     <App/>
                 </ThemeProvider>
-        </ErrorBoundary>
-    </BrowserRouter>)
+       </BrowserRouter>
+    </ErrorBoundary>)

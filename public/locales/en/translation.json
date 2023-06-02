@@ -2,7 +2,12 @@
     "test example": "test example",
     "Translate":"Translate",
     "Chasing":"Chasing",
-    "Language":"English"
+    "Language":"English",
+    "Unexpected error.Try to reset page":"Unexpected error.Try to reset page",
+    "Refresh Page":"Refresh Page",
+    "Throw Error":"Throw Error"
+
+
     
     
 }
