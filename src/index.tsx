@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from 'app/providers/themeProvider'
 import 'index.scss'
 import 'shared/config/i18n/i18n'
-import { ErrorBoundary } from 'app/providers/ErrorBoundary'
+import ErrorBoundary from "app/providers/ErrorBoundary/ui/ErrorBoundary"
 
 const root = ReactDOM.createRoot(document.getElementById('root')!)
 
