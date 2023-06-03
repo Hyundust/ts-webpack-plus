@@ -36,12 +36,17 @@ export default {
   coveragePathIgnorePatterns: [
     "/node_modules/"
   ],
+  modulePaths: [
+    `<rootDir>src`,
+    
+  ],
   // The root directory that Jest should scan for tests and modules within
   rootDir: "../../",
   // The glob patterns Jest uses to detect test files
   testMatch: [
     `<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)`,
   ],
+  setupFilesAfterEnv:[`<rootDir>/config/jest/setupTests.js`]
 
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,

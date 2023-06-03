@@ -28,3 +28,4 @@ export function buildPlagins ({ paths, isDev }: BuildOptions): webpack.WebpackPl
         )
     ]
 }
+  
