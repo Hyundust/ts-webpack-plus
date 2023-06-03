@@ -46,7 +46,7 @@ export default {
   testMatch: [
     `<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)`,
   ],
-  setupFilesAfterEnv:[`<rootDir>/config/jest/setupTests.js`]
+  setupFilesAfterEnv:[`<rootDir>/config/jest/setupTests.ts`]
 
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
