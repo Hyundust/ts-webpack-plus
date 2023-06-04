@@ -1,19 +1,22 @@
+// Importing necessary modules and libraries
 import React, { ErrorInfo, ReactNode, Suspense } from 'react';
 import { ErrorPage } from 'widgets/ErrorPage/ui/ErrorPage';
 
+// Defining the props interface for the ErrorBoundary component
 interface ErrorBoundaryProps {
-    children: ReactNode;
+    children: ReactNode; // children property for ErrorBoundary component that can accept any valid react node
 }
 
+// Defining the state interface for the ErrorBoundary component
 interface ErrorBoundaryState {
-    hasError: boolean;
+    hasError: boolean; // a property to keep track of whether an error occurred in child components.
 }
 
-class ErrorBoundary
-    extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
+// Defining the ErrorBoundary class-based component
+class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
     constructor(props: ErrorBoundaryProps) {
         super(props);
-        this.state = { hasError: false };
+        this.state = { hasError: false }; // Initializing the state to not have any errors occur
     }
 
     static getDerivedStateFromError(error: Error) {
@@ -31,7 +34,7 @@ class ErrorBoundary
         const { children } = this.props;
 
         if (hasError) {
-            // You can render any custom fallback UI
+            // Rendering a custom fallback UI
             return (
                 <Suspense fallback="">
                     <ErrorPage />
