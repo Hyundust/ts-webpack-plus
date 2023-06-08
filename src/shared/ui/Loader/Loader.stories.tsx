@@ -1,23 +1,18 @@
 // We are importing the types `Meta` and `StoryObj` from `@storybook/react`
 import type { Meta, StoryObj } from '@storybook/react';
-
 // We are importing the `Button` and `ThemeButton` components from the './Button' file
-import { AppLink, AppLinkTheme } from './AppLink';
+import Loader from './Loader';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from 'app/providers/themeProvider';
-
 
 // We declare an object `meta` with two properties: `title` and `component`.
 // `title` specifies the name of the storybook which we will see in the left sidebar of the storybook UI.
 // `component` is the component that we are writing the story for.
 // `satisfies` property ensures that the `meta` object strictly follows the `Meta` type.
 const meta = {
-  title: 'shared/AppLink',
-  component: AppLink,
-  args:{
-    to:"/"
-  }
-} satisfies Meta<typeof AppLink>;
+  title: 'shared/Loader',
+  component: Loader,
+} satisfies Meta<typeof Loader>;
 
 // Exporting the `meta` object as default.
 export default meta;
@@ -31,34 +26,15 @@ type Story = StoryObj<typeof meta>;
 // Primary story contains the prop called children with text "Button".
 // Secondary story contains the prop called children with text "Button" and theme with value CLEAR.
 // Both of these stories belongs to `Button` component.
-export const Primary: Story = {
-  args: {   
-    children: 'Text',
-    theme:AppLinkTheme.PRIMARY,
-  },
-};
-
-
-export const Secondary: Story = {
+export const Light: Story = {
   args: {
-    children: 'Text',
-    theme:AppLinkTheme.SECONDARY
   },
 };
 
-export const FirstDark: Story = {
+
+export const Dark: Story = {
   args: {
-    children: 'Text',
-    theme:AppLinkTheme.PRIMARY
+    
   },
 };
-FirstDark.decorators = [ThemeDecorator(Theme.Dark)]
-
-
-export const SecondaryDark: Story = {
-  args: {
-    children: 'Text',
-    theme:AppLinkTheme.SECONDARY
-  },
-};
-Secondary.decorators = [ThemeDecorator(Theme.Dark)]
+Dark.decorators = [ThemeDecorator(Theme.Dark)]

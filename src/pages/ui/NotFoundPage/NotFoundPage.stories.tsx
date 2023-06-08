@@ -2,7 +2,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 // We are importing the `Button` and `ThemeButton` components from the './Button' file
-import { AppLink, AppLinkTheme } from './AppLink';
+import { NotFound } from './NotFoundPage';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from 'app/providers/themeProvider';
 
@@ -12,12 +12,9 @@ import { Theme } from 'app/providers/themeProvider';
 // `component` is the component that we are writing the story for.
 // `satisfies` property ensures that the `meta` object strictly follows the `Meta` type.
 const meta = {
-  title: 'shared/AppLink',
-  component: AppLink,
-  args:{
-    to:"/"
-  }
-} satisfies Meta<typeof AppLink>;
+  title: 'pages/NotFound',
+  component: NotFound,
+} satisfies Meta<typeof NotFound>;
 
 // Exporting the `meta` object as default.
 export default meta;
@@ -33,32 +30,12 @@ type Story = StoryObj<typeof meta>;
 // Both of these stories belongs to `Button` component.
 export const Primary: Story = {
   args: {   
-    children: 'Text',
-    theme:AppLinkTheme.PRIMARY,
   },
 };
 
 
 export const Secondary: Story = {
   args: {
-    children: 'Text',
-    theme:AppLinkTheme.SECONDARY
-  },
-};
-
-export const FirstDark: Story = {
-  args: {
-    children: 'Text',
-    theme:AppLinkTheme.PRIMARY
-  },
-};
-FirstDark.decorators = [ThemeDecorator(Theme.Dark)]
-
-
-export const SecondaryDark: Story = {
-  args: {
-    children: 'Text',
-    theme:AppLinkTheme.SECONDARY
   },
 };
 Secondary.decorators = [ThemeDecorator(Theme.Dark)]
