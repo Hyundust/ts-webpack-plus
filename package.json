@@ -10,8 +10,8 @@
     "slint:scss:fix": "npx stylelint \"**/*.scss\"--fix",
     "slint:scss": "npx stylelint \"**/*.scss\"",
     "unit": "jest --config ./config/jest/jest.config.ts",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "storybook": "storybook dev -p 6006 -c ./config/storybook",
+    "build-storybook": "storybook build -c ./config/storybook"
   },
   "keywords": [],
   "author": "",
