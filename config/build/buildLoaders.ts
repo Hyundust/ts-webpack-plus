@@ -1,7 +1,7 @@
 
 import type webpack from 'webpack'
 import { type BuildOptions } from './types/config'
-import  buildCssLoader from "./loaders/buildCSSLoader"
+import  {buildCssLoader} from "./loaders/buildCSSLoader"
 
 export function BuildLoaders ({ isDev }: BuildOptions): webpack.RuleSetRule[] {
 
