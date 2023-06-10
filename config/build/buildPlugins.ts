@@ -7,11 +7,7 @@ import {BundleAnalyzerPlugin} from "webpack-bundle-analyzer"
 
 // Defining a function called buildPlagins that takes an object with paths property and returns an array of Webpack plugins.
 export function buildPlagins ({ paths, isDev }: BuildOptions): webpack.WebpackPluginInstance[] {
-    // Returning an array of three plugins:
-    // 1) HtmlWebpackPlugin which is responsible for generating an HTML file with script and link tags to include bundles.
-    // 2) webpack.ProgressPlugin which provides current progress during compilation.
-    // 3) MiniCssExtractPlugin which extracts CSS into separate files and adds them as links in the generated HTML file.
-    return [
+    const plugins = [
         new HtmlWebpackPlugin({ template: paths.html }),
         new webpack.ProgressPlugin(),
         new MiniCssExtractPlugin({
@@ -21,11 +17,18 @@ export function buildPlagins ({ paths, isDev }: BuildOptions): webpack.WebpackPl
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev)
         }),
-        new BundleAnalyzerPlugin(
+
+
+    ]
+    if (isDev){
+        plugins.push( 
+            new BundleAnalyzerPlugin(
             {
                 openAnalyzer:false
             }
-        )
-    ]
+        ))
+    }
+
+    return plugins;
 }
   

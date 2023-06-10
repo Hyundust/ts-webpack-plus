@@ -26,9 +26,7 @@ jobs:
 
     - name: Build Project in production mode
       run: npm run build:prod
-    - name: Build Project in development mode
-      run: npm run build:dev
-
+    
     - name: Run unit testing
       run: npm run unit
     
