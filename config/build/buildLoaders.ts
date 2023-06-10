@@ -4,6 +4,7 @@ import { type BuildOptions } from './types/config'
 import { buildCssLoader } from './loaders/buildCSSLoader'
 
 export function BuildLoaders ({ isDev }: BuildOptions): webpack.RuleSetRule[] {
+
     const typescriptLoader = {
         test: /\.tsx?$/,
         use: 'ts-loader',
