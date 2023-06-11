@@ -4,6 +4,7 @@ import cls from './SideBar.module.scss'
 import { useState } from 'react'
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher'
 import { LangSwitcher } from 'widgets/LangSwitcher/ui/LangSwitcher'
+import { Button, ThemeButton } from 'shared/ui/Button/Button'
 
 // Define the type of props for the SideBar component
 interface SideBarProps {
@@ -29,10 +30,13 @@ export const SideBar = ({ className }: SideBarProps) => {
             // Additional CSS classes passed via the `className` prop are also added to the div element if it is defined.
             className={classNames(cls.sidebar, {[cls.collapsed]: collapsed}, [className])}>
             {/*Render a button with text "Toggle" that calls the `onToggle` function on click*/}
-            <button data-testid={"sidebar-toggle"}
-                    className={cls.buttoncum} onClick={onToggle}>
-                    Toggle
-            </button>
+            <Button data-testid={"sidebar-toggle"}
+                    onClick={onToggle}
+                    className  = {cls.collapsedBtn}
+                    theme= {ThemeButton.BACKGROUND_INVERTED}>
+                       
+                    {collapsed ? ">" : "<"}
+            </Button>
             {/*Render a div with class `switchers` which contains two components `ThemeSwitcher` and `LangSwitcher`*/}
             <div className={cls.switchers}>
                 <ThemeSwitcher/>

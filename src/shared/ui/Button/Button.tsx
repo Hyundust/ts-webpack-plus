@@ -6,7 +6,10 @@ import { type ButtonHTMLAttributes, type FC } from 'react' // ButtonHTMLAttribut
 // Defining an enum called ThemeButton which contains CLEAR as a property with value "clear"
 export enum ThemeButton {
     CLEAR = 'clear',
-    OUTLINE = "outline"
+    OUTLINE = "outline",
+    BACKGROUND = "background",
+    BACKGROUND_INVERTED = "backgroundInverted" 
+
 }
 
 // Defining the interface for ButtonProps which extends the ButtonHTMLAttributes interface of HTMLButtonElement
