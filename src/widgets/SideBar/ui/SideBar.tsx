@@ -4,7 +4,7 @@ import cls from './SideBar.module.scss'
 import { useState } from 'react'
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher'
 import { LangSwitcher } from 'widgets/LangSwitcher/ui/LangSwitcher'
-import { Button, ThemeButton } from 'shared/ui/Button/Button'
+import { Button, SizeButton, ThemeButton } from 'shared/ui/Button/Button'
 
 // Define the type of props for the SideBar component
 interface SideBarProps {
@@ -33,7 +33,9 @@ export const SideBar = ({ className }: SideBarProps) => {
             <Button data-testid={"sidebar-toggle"}
                     onClick={onToggle}
                     className  = {cls.collapsedBtn}
-                    theme= {ThemeButton.BACKGROUND_INVERTED}>
+                    theme= {ThemeButton.BACKGROUND_INVERTED}
+                    squared
+                    size={SizeButton.XL}>
                        
                     {collapsed ? ">" : "<"}
             </Button>
@@ -41,7 +43,7 @@ export const SideBar = ({ className }: SideBarProps) => {
             <div className={cls.switchers}>
                 <ThemeSwitcher/>
                 {/*Pass an additional `className` prop to the `LangSwitcher` component to apply specific styles*/}
-                <LangSwitcher className={cls.lang}/>
+                <LangSwitcher short = {collapsed} className={cls.lang}/>
             </div>
 
         </div>

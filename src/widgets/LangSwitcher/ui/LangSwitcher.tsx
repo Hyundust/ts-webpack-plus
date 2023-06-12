@@ -2,14 +2,16 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
 import { Button, ThemeButton } from 'shared/ui/Button/Button'
+import { sumBy } from 'lodash'
 
 // Defining the props interface for the LangSwitcher component
 interface LangSwitcherProps {
   className?: string // optional className property for LangSwitcher component that can accept a string
+  short?:boolean
 }
 
 // Defining a stateless functional component called LangSwitcher that uses destructuring to get its className parameter
-export const LangSwitcher = ({ className }: LangSwitcherProps) => {
+export const LangSwitcher = ({ className,short }: LangSwitcherProps) => {
 
     // Using the 'useTranslation' hook from the react-i18next library to set up internationalization and translation capabilities
     const { t, i18n } = useTranslation()
@@ -26,7 +28,7 @@ export const LangSwitcher = ({ className }: LangSwitcherProps) => {
         <Button theme={ThemeButton.CLEAR}
             onClick={Toggle}
             className={classNames("", {}, [className])}>
-            {t('Language')}
+            {t( short? "Short" :'Language')}
         </Button>
     )
 }

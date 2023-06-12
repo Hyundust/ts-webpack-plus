@@ -11,6 +11,12 @@ export enum ThemeButton {
     BACKGROUND_INVERTED = "backgroundInverted" 
 
 }
+export enum SizeButton{
+    L= "size_l",
+    M= "size_m",
+    XL= "size_xl",
+
+}
 
 // Defining the interface for ButtonProps which extends the ButtonHTMLAttributes interface of HTMLButtonElement
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -18,18 +24,35 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string
     // Optional theme attribute of type ThemeButton enum
     theme?: ThemeButton
+    //option for button to be squared
+    squared?:boolean
+
+    size?:SizeButton
 }
 
 // Defining the functional component Button which takes in ButtonProps as its props
 export const Button: FC<ButtonProps> = (props) => {
     // Extracting required props from ButtonProps object
-    const { className, children, theme, ...otherProps } = props
+    const { className,
+            children,
+            theme,
+            squared,
+            size = SizeButton.M,
+            ...otherProps } = props
+
+    const mods:Record<string,boolean> = {
+        [cls[theme]]:true,
+        [cls.squared]:squared,
+        [cls[size]]:true
+
+    }
 
     // Rendering a button element with appropriate classes using classNames utility function
     return (
         <button
-            className={classNames(cls.button, {}, [className, cls[theme ?? '']])}
+            className={classNames(cls.button, mods, [className])}
             {...otherProps}
+            
         >
             {/* Rendering the child elements of Button */}
             {children}
