@@ -5,6 +5,11 @@ import { useState } from 'react'
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher'
 import { LangSwitcher } from 'widgets/LangSwitcher/ui/LangSwitcher'
 import { Button, SizeButton, ThemeButton } from 'shared/ui/Button/Button'
+import { AppLink,AppLinkTheme  } from 'shared/ui/AppLink/AppLink'
+import { RoutePath } from 'shared/config/routeConfig/routeConfig'
+import AboutIcon from "../../../shared/assets/icons/about-20-20.svg"
+import MainIcon from "../../../shared/assets/icons/main-20-20.svg"
+
 
 // Define the type of props for the SideBar component
 interface SideBarProps {
@@ -37,8 +42,24 @@ export const SideBar = ({ className }: SideBarProps) => {
                     squared
                     size={SizeButton.XL}>
                        
-                    {collapsed ? ">" : "<"}
+                    {collapsed ? ">" : "<"} 
             </Button>
+                
+                <AppLink theme={AppLinkTheme.SECONDARY} className={cls.item} to={RoutePath.main}>
+                            <MainIcon  className={cls.icon}/>
+                                <span className={cls.link} >
+                                        Main Page
+                                </span>
+                </AppLink> {/* A link to the home page */}
+            
+                <AppLink theme={AppLinkTheme.SECONDARY} className={cls.item} to={RoutePath.about}>
+                     <AboutIcon className={cls.icon}/>
+                        <span className={cls.link}>
+                                About Page 
+                        </span>
+                    
+                </AppLink> {/* A link to the about page */}
+           
             {/*Render a div with class `switchers` which contains two components `ThemeSwitcher` and `LangSwitcher`*/}
             <div className={cls.switchers}>
                 <ThemeSwitcher/>
