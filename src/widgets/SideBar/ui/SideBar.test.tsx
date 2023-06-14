@@ -1,16 +1,16 @@
 import { fireEvent, render,screen } from "@testing-library/react"
 import { SideBar } from "./SideBar";
-import {withTranslation} from "react-i18next"
 import { renderWithTranslation } from "shared/lib/testsHelpers/RenderWithTranslations";
+import { ComponentRender } from "shared/lib/testsHelpers/componentRender";
 
 describe("Sidebar",()=>{
     test("should add render",()=>{
-        renderWithTranslation(<SideBar/>);
+        ComponentRender(<SideBar/>);
         expect(screen.getByTestId("sidebar")).toBeInTheDocument()
     });
 
     test("should hide/open",()=>{
-        renderWithTranslation(<SideBar/>);
+        ComponentRender (<SideBar/>);
         const toggleBut = screen.getByTestId("sidebar-toggle");
         expect(screen.getByTestId("sidebar")).toBeInTheDocument();
         fireEvent.click(toggleBut)

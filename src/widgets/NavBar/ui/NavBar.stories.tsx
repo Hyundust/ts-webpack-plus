@@ -18,7 +18,7 @@ const meta = {
 // Exporting the `meta` object as default.
 export default meta;
 
-//Creating a new type alias `Story` using `StoryObj<typeof meta>`, for better readability.
+//Creating a new type alias `Story` using `St   oryObj<typeof meta>`, for better readability.
 type Story = StoryObj<typeof meta>;
 
 // Defining stories by exporting constants with each representing different variants of our component.
