@@ -3,12 +3,18 @@
 @import "themes/light";
 @import "reset";
 
-.app{
-    font: var(--font-m);
+
+
+.body{
     color: var(--primary-color);
-    background: var(--bg-color);
+    font: var(--font-m);
+    
+}
+
+
+.app{
     min-height: 100vh;
-   
+    background: var(--bg-color);
 
 }
 

@@ -14,7 +14,10 @@ module.exports = {
         sourceType: 'module'
     },
     plugins: [
-        'react'
+        'react',
+        '@typescript-eslint',
+        'react-hooks'
+
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -35,6 +38,8 @@ module.exports = {
         '@typescript-eslint/prefer-nullish-coalescing': 'off',
         '@typescript-eslint/explicit-function-return-type': 'off',
         '@typescript-eslint/no-unused-vars': 'off',
-        '@typescript-eslint/strict-boolean-expressions': 'off'
+        '@typescript-eslint/strict-boolean-expressions': 'off',
+        'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
+        'react-hooks/exhaustive-deps': 'warn' // Checks effect dependencies
     }
 }

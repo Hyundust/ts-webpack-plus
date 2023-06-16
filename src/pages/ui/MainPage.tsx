@@ -1,5 +1,5 @@
 
-import { BugButton } from 'app/providers/ErrorBoundary'
+
 import { useTranslation } from 'react-i18next'
 
 function MainPage () {
@@ -7,7 +7,6 @@ function MainPage () {
 
     return (
         <div>
-            <BugButton/>
 
             {t('Chasing')}
 
