@@ -6,14 +6,17 @@ import { ThemeProvider } from 'app/providers/themeProvider'
 import "app/styles/index.scss"
 import 'shared/config/i18n/i18n'
 import ErrorBoundary from "app/providers/ErrorBoundary/ui/ErrorBoundary"
+import { StoreProvider } from 'app/providers/storeProvider'
 
 const root = ReactDOM.createRoot(document.getElementById('root')!)
 
 root.render(
-    <ErrorBoundary>
-        <BrowserRouter>
-                <ThemeProvider>
-                    <App/>
-                </ThemeProvider>
-       </BrowserRouter>
-    </ErrorBoundary>)
+    <StoreProvider>
+            <ErrorBoundary>
+                <BrowserRouter>
+                        <ThemeProvider>
+                            <App/>
+                        </ThemeProvider>
+            </BrowserRouter>
+            </ErrorBoundary>
+    </StoreProvider>)

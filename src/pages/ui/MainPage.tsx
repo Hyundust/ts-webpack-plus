@@ -1,5 +1,6 @@
 
 
+import { Counter } from 'entities'
 import { useTranslation } from 'react-i18next'
 
 function MainPage () {
@@ -9,7 +10,7 @@ function MainPage () {
         <div>
 
             {t('Chasing')}
-
+            <Counter/>
         </div>
     )
 }
