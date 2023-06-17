@@ -22,6 +22,8 @@ export const Modal= ( props : ModalProps) => {
             isOpen,
             onClose}= props
 
+    const {theme} = useTheme();
+
     const [isClosing,setIsClosing] = useState(false);
 
     
@@ -82,7 +84,7 @@ export const Modal= ( props : ModalProps) => {
 
     return (
         <Portal>
-            <div className={classNames(cls.Modal, mods, [className])}> {/* Defining the className prop as a combination of classes using the classNames function */}
+            <div className={classNames(cls.Modal, mods, [className,theme])}> {/* Defining the className prop as a combination of classes using the classNames function */}
                 <div className={cls.overlay} onClick={closeHandler}>
                     <div className={cls.content} 
                             onClick ={onContentClick} >
