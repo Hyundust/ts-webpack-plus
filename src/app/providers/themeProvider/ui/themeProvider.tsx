@@ -1,16 +1,31 @@
 // Importing necessary modules from React.
-import { type FC, useMemo, useState, type ReactNode } from 'react'
+import React ,{ type FC, useMemo, useState, ReactNode} from 'react'
 
 // Importing LOCAL_STORAGE_THEME_KEY and Theme enums from the themeContext file.
 import { LOCAL_STORAGE_THEME_KEY, ThemeContext, Theme } from '../lib/themeContext'
+
+interface themeProviderProps{
+    initialTheme? : Theme,
+    children: ReactNode
+
+
+}
+
+
 
 // Assigning the locally stored value of theme preference to the defaultTheme variable. If there is no stored theme preference, the default value will be Light Theme.
 const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme || Theme.Light
 
 // Declaring a functional component called ThemeProvider, which takes children nodes as props.This component will provide Theme related context data to its child nodes.
-const ThemeProvider: FC<{ children: ReactNode }> = ({ children }) => {
+const ThemeProvider: FC<themeProviderProps> = (props) => {
+    const {
+        children,
+        initialTheme
+
+    } = props;
+
     // Initializing state by assigning the defaultTheme to theme variable using useState hook.
-    const [theme, setTheme] = useState<Theme>(defaultTheme)
+    const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme)
 
     // Using useMemo hook to optimize performance by memoizing the defaultProps object. It has theme and setTheme properties that are taken from current state values when they change.
     const defaultProps = useMemo(() => ({

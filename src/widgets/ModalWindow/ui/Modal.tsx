@@ -3,6 +3,7 @@ import { classNames } from 'shared/lib/classNames/classNames' // classNames util
 import cls from './Modal.module.scss' // CSS module containing class names for this component
 import { ReactNode, useCallback, useEffect, useRef, useState } from 'react'
 import { Portal } from 'widgets/Portal/Portal'
+import { useTheme } from 'app/providers/themeProvider'
 
 // Declaring the required interface props for the Navbar component
 interface ModalProps {
@@ -16,7 +17,7 @@ const ANIMATION_DELAY = 300;
 
 // Defining the Navbar functional component with destructured props
 export const Modal= ( props : ModalProps) => {
-    const {className,
+    const { className,
             children,
             isOpen,
             onClose}= props
@@ -28,7 +29,8 @@ export const Modal= ( props : ModalProps) => {
 
     const mods :Record<string , boolean> = {
         [cls.isOpened]:isOpen,
-        [cls.isClosing]:isClosing
+        [cls.isClosing]:isClosing,
+        
     }
 
 

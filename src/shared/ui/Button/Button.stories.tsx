@@ -49,6 +49,24 @@ export const OUTLINE: Story = {
   };
 OUTLINE.decorators = [ThemeDecorator(Theme.Light)]
 
+export const CLEAR_INVERTED: Story = {
+  args: {
+    children: 'Button',   
+    theme:ThemeButton.CLEAR_INVERTED
+  },
+};
+
+
+
+export const CLEAR_INVERTED_dark: Story = {
+  args: {
+    children: 'Button',   
+    theme:ThemeButton.CLEAR_INVERTED
+  },
+};
+OUTLINE.decorators = [ThemeDecorator(Theme.Dark)]
+
+
 export const BACKGROUNDTheme: Story = {
   args: {
     children: 'Button',   

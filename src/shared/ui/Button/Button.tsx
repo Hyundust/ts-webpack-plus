@@ -6,9 +6,10 @@ import { type ButtonHTMLAttributes, type FC } from 'react' // ButtonHTMLAttribut
 // Defining an enum called ThemeButton which contains CLEAR as a property with value "clear"
 export enum ThemeButton {
     CLEAR = 'clear',
+    CLEAR_INVERTED = "clearInverted",
     OUTLINE = "outline",
     BACKGROUND = "background",
-    BACKGROUND_INVERTED = "backgroundInverted" 
+    BACKGROUND_INVERTED = "backgroundInverted"
 
 }
 export enum SizeButton{
