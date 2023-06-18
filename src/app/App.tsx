@@ -16,7 +16,7 @@ const App = () => {
 
     return (
 
-        <div className={classNames('app', { hovered: true, selected: false }, [theme, 'class2'])}> {/* Adding a div with class name app, and the theme class obtained from the hook */}
+        <div className={classNames('app', { hovered: true, selected: false },[])}> {/* Adding a div with class name app, and the theme class obtained from the hook */}
             <Suspense fallback = "">
                 <Navbar/>
                 <div className='content-page'>
