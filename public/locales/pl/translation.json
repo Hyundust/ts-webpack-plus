@@ -6,6 +6,9 @@
   "Unexpected error.Try to reset page": "Wystąpił błąd.Spróbuj odświezyć stronę ",
   "Refresh Page": "Odśwież",
   "Throw Error": "błąd",
-  "Short":"PL",
-  "Log in":"Logowanie"
+  "Short": "PL",
+  "Log in": "Logowanie",
+  "Username": "Nazwa użytkownika",
+  "Password":"Hasłó",
+  "Log in into your account":"Zaloguj się do konta"
 }

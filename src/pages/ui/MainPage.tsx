@@ -18,7 +18,6 @@ function MainPage () {
         <div>
 
             {t('Chasing')}
-            <CustomInput value={value} onChange={changeValue} placeholder='Input you login'/>
         </div>
     )
 }
