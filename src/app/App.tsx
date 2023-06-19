@@ -22,7 +22,7 @@ const App = () => {
                 <div className='content-page'>
                     <SideBar/>
                     <AppRouter/>
-                </div>
+                </div>  
             </Suspense>
         </div>
     )

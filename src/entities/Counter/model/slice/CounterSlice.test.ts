@@ -1,5 +1,5 @@
- import { counterActions,counterReducer } from 'entities';
-import { CounterScheme } from '../types/CounterSchema';
+import { CounterScheme } from "../types/CounterSchema";
+import { counterReducer, counterActions } from "./CounterSlice";
 
 describe('counter reducer', () => {
   const initialState: CounterScheme = {
