@@ -138,3 +138,11 @@ export const SquaredsizeXL: Story = {
     size:SizeButton.XL
   },
 };
+export const DisabledButtom: Story = {
+  args: {
+    children: 'Button',   
+    theme:ThemeButton.BACKGROUND,
+    disabled:true
+  },
+};
+DisabledButtom.decorators = [ThemeDecorator(Theme.Light)]

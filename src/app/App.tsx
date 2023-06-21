@@ -5,15 +5,20 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import { AppRouter } from './providers/router'
 import { Navbar } from 'widgets/NavBar'
 import { SideBar } from 'widgets/SideBar'
-import { Suspense, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import { Modal } from 'widgets/ModalWindow'
+import { useDispatch } from 'react-redux'
+import { userActions } from 'entities/User'
 
 
 
 const App = () => {
-    // Destructuring theme and toggleThem functions of 'useTheme' hook.
-    const { theme } = useTheme();
+    const dispatch = useDispatch();
 
+    useEffect(()=>{
+        dispatch(userActions.initAuthData())
+    },[dispatch])
+    
     return (
 
         <div className={classNames('app', { hovered: true, selected: false },[])}> {/* Adding a div with class name app, and the theme class obtained from the hook */}

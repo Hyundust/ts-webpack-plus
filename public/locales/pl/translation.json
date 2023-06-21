@@ -9,6 +9,10 @@
   "Short": "PL",
   "Log in": "Logowanie",
   "Username": "Nazwa użytkownika",
-  "Password":"Hasłó",
-  "Log in into your account":"Zaloguj się do konta"
+  "Password": "Hasłó",
+  "Log in into your account": "Zaloguj się do konta",
+  "Something went wrong": {
+    "Try again": "Coś poszło nie tak.Sprobuj ponownie"
+  },
+  "Log out": "Wyloguj się\n"
 }

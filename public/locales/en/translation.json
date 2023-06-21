@@ -9,6 +9,10 @@
   "Short": "EN",
   "Log in": "Log in",
   "Username": "Username",
-  "Password":"Password",
-  "Log in into your account":"Log in into your account"
+  "Password": "Password",
+  "Log in into your account": "Log in into your account",
+  "Something went wrong": {
+    "Try again": "Something went wrong.Try again\n"
+  },
+  "Log out": "Log out"
 }
