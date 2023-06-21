@@ -5,6 +5,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Navbar } from './Navbar';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from 'app/providers/themeProvider';
+import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
 
 // We declare an object `meta` with two properties: `title` and `component`.
 // `title` specifies the name of the storybook which we will see in the left sidebar of the storybook UI.
@@ -31,10 +32,16 @@ export const Primary: Story = {
   args: {   
   },
 };
-
+Primary.decorators = [StoreDecorator({})]
 
 export const Secondary: Story = {
   args: {
   },
 };
-Secondary.decorators = [ThemeDecorator(Theme.Dark)]
+Secondary.decorators = [ThemeDecorator(Theme.Dark),StoreDecorator({})]
+
+export const Auth: Story = {
+  args: {
+  },
+};
+Auth.decorators = [ThemeDecorator(Theme.Dark),StoreDecorator({user:{authData:{}}})]

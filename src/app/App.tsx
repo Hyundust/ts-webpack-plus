@@ -5,10 +5,9 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import { AppRouter } from './providers/router'
 import { Navbar } from 'widgets/NavBar'
 import { SideBar } from 'widgets/SideBar'
-import { Suspense, useEffect, useState } from 'react'
-import { Modal } from 'widgets/ModalWindow'
+import { Suspense, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { userActions } from 'entities/User'
+import { userActions } from 'entyes/User'
 
 
 

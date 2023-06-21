@@ -4,6 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from 'app/providers/themeProvider';
 import { LoginForm } from './LoginForm';
+import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
 
 
 // We declare an object `meta` with two properties: `title` and `component`.
@@ -34,10 +35,32 @@ export const Primary: Story = {
   }
 };
 
+Primary.decorators = [StoreDecorator({
+  loginForm:{username:"admin",password:"123"}
+  
+})]
 
-export const Secondary: Story = {
-  args: {
+
+export const WithError: Story = {
+  args: {   
     
-  },
+    
+  }
 };
-Secondary.decorators = [ThemeDecorator(Theme.Dark)]
+
+WithError.decorators = [StoreDecorator({
+  loginForm:{username:"admin",password:"123",isError:"Error :)"}
+  
+})]
+
+export const WithLoading : Story = {
+  args: {   
+    
+    
+  }
+};
+
+WithLoading.decorators = [StoreDecorator({
+  loginForm:{username:"admin",password:"123",isLoading:true}
+  
+})]

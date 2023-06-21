@@ -10,6 +10,8 @@ import { getLoginState } from "features/AuthByUsername/model/selectors/selectLog
 import { loginActions } from "features/AuthByUsername/model/slice/loginSlice"
 import { loginByUsername } from "features/AuthByUsername/model/services/LoginByUsername/LoginByUsername"
 import { Text, TextTheme } from "shared/ui/Text/Text"
+import i18n from "shared/config/i18n/i18n"
+
 
 
 
@@ -44,7 +46,7 @@ export const LoginForm = ({ className }: LoginFormProps) => {
         
         <div className={classNames(cls.LoginForm,{},[className,])}>
             <div className={cls.Header} >{t("Log in into your account")}</div>
-            {isError && <Text text={isError} theme={TextTheme.ERROR}/>}
+            {isError && <Text text={t('Something went wrong.Try again')} theme={TextTheme.ERROR}/>}
             <CustomInput 
                         className={cls.input}
                         placeholder={t("Username")}

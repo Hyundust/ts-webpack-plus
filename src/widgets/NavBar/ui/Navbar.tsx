@@ -7,7 +7,7 @@ import { useCallback, useState } from 'react'
 
 import { LoginModal } from 'features/AuthByUsername/ui/LoginModal/LoginModal'
 import { useDispatch, useSelector } from 'react-redux'
-import { getUserData, userActions } from 'entities/User'
+import { getUserData, userActions } from 'entyes/User'
 
 // Declaring the required interface props for the Navbar component
 interface NavBarProps {
