@@ -1,8 +1,6 @@
 
 // We are importing the types `Meta` and `StoryObj` from `@storybook/react`
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
-import { Theme } from 'app/providers/themeProvider';
 import { LoginForm } from './LoginForm';
 import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
 

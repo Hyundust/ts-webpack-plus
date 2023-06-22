@@ -20,13 +20,15 @@ export function buildPlagins ({ paths, isDev }: BuildOptions): webpack.WebpackPl
 
 
     ]
+
+    plugins.push( 
+        new BundleAnalyzerPlugin(
+        {
+            openAnalyzer:false
+        }
+    ))
     if (isDev){
-        plugins.push( 
-            new BundleAnalyzerPlugin(
-            {
-                openAnalyzer:false
-            }
-        ))
+        
     }
 
     return plugins;
