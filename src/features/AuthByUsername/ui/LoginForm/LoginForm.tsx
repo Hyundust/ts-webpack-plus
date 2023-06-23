@@ -6,25 +6,27 @@ import { Button, ThemeButton } from "shared/ui/Button/Button"
 import { CustomInput } from "shared/ui/CstmInpt/CustomInput"
 import { useDispatch, useSelector, useStore } from "react-redux"
 import { memo, useCallback, useEffect } from "react"
-import { getLoginState } from "features/AuthByUsername/model/selectors/selectLoginState"
 import { loginActions, loginReducer } from "features/AuthByUsername/model/slice/loginSlice"
 import { loginByUsername } from "features/AuthByUsername/model/services/LoginByUsername/LoginByUsername"
 import { Text, TextTheme } from "shared/ui/Text/Text"
-import { reduxStoreWithManager } from "app/providers/storeProvider"
 import { getLoginUsername } from "features/AuthByUsername/model/selectors/getLoginUsername/selectLoginUsername"
 import { getLoginLoading } from "features/AuthByUsername/model/selectors/getLoginLoading/selectLoginLoading"
 import { getLoginIsError } from "features/AuthByUsername/model/selectors/getLoginIsError/selectLoginIsError"
 import { getLoginPassword } from "features/AuthByUsername/model/selectors/getLoginPassword/selectLoginPassword"
-import { ModuleLoad } from "shared/lib/components/ModLoader/ModuleLoader"
-
+import { ModuleLoad, ReducerList } from "shared/lib/components/ModLoader/ModuleLoader"
+import { ModuleLoadProps } from "shared/lib/components/ModLoader/ModuleLoader"
 
 
 
 export interface LoginFormProps{
         className?:string
+
  }
 
+const initialReducers:ReducerList = {
+    loginForm:loginReducer,
 
+}
 
 export const LoginForm = memo(({ className }: LoginFormProps) => {
     const { t } = useTranslation();
@@ -51,7 +53,7 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
       
 
     return (
-        <ModuleLoad name = "loginForm" reducer={loginReducer}>
+        <ModuleLoad reducers={initialReducers}>
                         <div className={classNames(cls.LoginForm,{},[className,])}>
                     <div className={cls.Header} >{t("Log in into your account")}</div>
                     {isError && <Text text={t('Something went wrong.Try again')} theme={TextTheme.ERROR}/>}
