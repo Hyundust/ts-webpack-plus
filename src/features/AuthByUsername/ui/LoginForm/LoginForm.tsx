@@ -14,7 +14,6 @@ import { getLoginLoading } from "features/AuthByUsername/model/selectors/getLogi
 import { getLoginIsError } from "features/AuthByUsername/model/selectors/getLoginIsError/selectLoginIsError"
 import { getLoginPassword } from "features/AuthByUsername/model/selectors/getLoginPassword/selectLoginPassword"
 import { ModuleLoad, ReducerList } from "shared/lib/components/ModLoader/ModuleLoader"
-import { ModuleLoadProps } from "shared/lib/components/ModLoader/ModuleLoader"
 
 
 
