@@ -7,12 +7,15 @@ import { LangSwitcher } from 'widgets/LangSwitcher/ui/LangSwitcher'
 import { Button, SizeButton, ThemeButton } from 'shared/ui/Button/Button'
 import { SideBarItemList } from 'widgets/SideBar/model/items'
 import { SideBarItem } from '../SidebarItem/SidebarItem'
+import { useMemo } from 'react'
 
 
 // Define the type of props for the SideBar component
 interface SideBarProps {
   className?: string
 }
+
+
 
 // Export the SideBar component
 export const SideBar = ({ className }: SideBarProps) => {
@@ -23,7 +26,13 @@ export const SideBar = ({ className }: SideBarProps) => {
     const onToggle = () => {
         setCollapsed(prev => !prev)
     }
-
+    const ItemsList = useMemo(() =>
+    SideBarItemList.map((item) => (
+      <SideBarItem items={item} collapsed={collapsed} key={item.path} />
+    )),
+    [collapsed]
+  );
+  
     // Render the SideBar component using JSX
     return (
         <div
@@ -43,17 +52,7 @@ export const SideBar = ({ className }: SideBarProps) => {
                     {collapsed ? ">" : "<"} 
             </Button>
                 <div className={cls.items}>
-                    {SideBarItemList.map((item)=>(
-                        <SideBarItem 
-                                items={item}
-                                collapsed = {collapsed}
-                                key={item.path}
-                    
-
-                        ></SideBarItem>
-                    )
-
-                    )}
+                   {ItemsList}
 
                 </div>
            
