@@ -6,7 +6,7 @@ import { createReducerManager } from './reducersManager'
 import { DeepPartial } from '@reduxjs/toolkit'
 
 export function createReduxStore(initialState?: StateScheme,asyncReducers?:ReducersMapObject<StateScheme>) {
-  
+
   const rootReducers: ReducersMapObject<StateScheme, any> = {
     ...asyncReducers,
     user: userReducer,
@@ -26,6 +26,10 @@ export function createReduxStore(initialState?: StateScheme,asyncReducers?:Reduc
 
 
   return store
+
 }
+// Infer the `AppDispatch` types from the createReduxStore itself
+export type AppDispatch= ReturnType<typeof createReduxStore>["dispatch"]
+
 
 
