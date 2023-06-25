@@ -6,6 +6,9 @@ import { AnyAction } from "@reduxjs/toolkit"
 import { Reducer } from "@reduxjs/toolkit"
 import { CombinedState} from "@reduxjs/toolkit"
 import { ProfileScheme } from "entyes/Profile"
+import { AxiosInstance } from "axios"
+import { To,NavigateOptions } from "react-router-dom"
+
 export interface StateScheme{
   counter:CounterScheme
   user:UserScheme
@@ -31,3 +34,12 @@ export interface reduxStoreWithManager extends EnhancedStore<StateScheme> {
 }
 
 
+export interface ThunkExtraArg{
+  api:AxiosInstance
+  navigate:(to: To, options?: NavigateOptions)=> void
+}
+
+export interface ThunkConfig<T>{
+  rejectValue: T
+  extra:ThunkExtraArg
+}

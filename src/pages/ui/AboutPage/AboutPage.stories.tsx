@@ -2,7 +2,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 // We are importing the `Button` and `ThemeButton` components from the './Button' file
-import AboutPage from './AboutPage';
+import { AboutPage } from './AboutPage';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from 'app/providers/themeProvider';
 

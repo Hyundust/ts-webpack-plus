@@ -2,9 +2,8 @@
 
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next'
-import { CustomInput } from 'shared/ui/CstmInpt/CustomInput'
 
-function MainPage () {
+export const MainPage = () => {
     const { t } = useTranslation();
     const [value,setValue] = useState("")
 
@@ -22,4 +21,4 @@ function MainPage () {
     )
 }
 
-export default MainPage
+

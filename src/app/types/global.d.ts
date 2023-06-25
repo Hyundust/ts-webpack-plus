@@ -15,3 +15,4 @@ declare module '*.svg' {
 
 // Declare the constant "__IS_DEV__" as boolean.
 declare const __IS_DEV__: boolean
+declare const __API__: string
