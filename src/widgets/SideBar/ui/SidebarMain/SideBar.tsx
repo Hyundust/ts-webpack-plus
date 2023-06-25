@@ -1,13 +1,13 @@
 // Import required modules
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './SideBar.module.scss'
-import { useState } from 'react'
+import { memo, useState } from 'react'
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher'
 import { LangSwitcher } from 'widgets/LangSwitcher/ui/LangSwitcher'
 import { Button, SizeButton, ThemeButton } from 'shared/ui/Button/Button'
 import { SideBarItemList } from 'widgets/SideBar/model/items'
 import { SideBarItem } from '../SidebarItem/SidebarItem'
-import { useMemo } from 'react'
+
 
 
 // Define the type of props for the SideBar component
@@ -18,7 +18,7 @@ interface SideBarProps {
 
 
 // Export the SideBar component
-export const SideBar = ({ className }: SideBarProps) => {
+export const SideBar = memo(({ className }: SideBarProps) => {
     // Declare state variable using the `useState` hook and set its initial value as `false`
     const [collapsed, setCollapsed] = useState(false)
 
@@ -26,12 +26,7 @@ export const SideBar = ({ className }: SideBarProps) => {
     const onToggle = () => {
         setCollapsed(prev => !prev)
     }
-    const ItemsList = useMemo(() =>
-    SideBarItemList.map((item) => (
-      <SideBarItem items={item} collapsed={collapsed} key={item.path} />
-    )),
-    [collapsed]
-  );
+    
   
     // Render the SideBar component using JSX
     return (
@@ -52,8 +47,9 @@ export const SideBar = ({ className }: SideBarProps) => {
                     {collapsed ? ">" : "<"} 
             </Button>
                 <div className={cls.items}>
-                   {ItemsList}
-
+                    {SideBarItemList.map((item) => (
+                        <SideBarItem items={item} collapsed={collapsed} key={item.path} />
+                    ))}
                 </div>
            
             {/*Render a div with class `switchers` which contains two components `ThemeSwitcher` and `LangSwitcher`*/}
@@ -65,4 +61,4 @@ export const SideBar = ({ className }: SideBarProps) => {
 
         </div>
     )
-}
+})

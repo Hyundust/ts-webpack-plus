@@ -5,11 +5,14 @@ import { LoginScheme } from "features/AuthByUsername"
 import { AnyAction } from "@reduxjs/toolkit"
 import { Reducer } from "@reduxjs/toolkit"
 import { CombinedState} from "@reduxjs/toolkit"
+import { ProfileScheme } from "entyes/Profile"
 export interface StateScheme{
   counter:CounterScheme
   user:UserScheme
+  profile?:ProfileScheme
   //async reducer
   loginForm?:LoginScheme
+
 }
 export type StateSchemeKey = keyof StateScheme;
 

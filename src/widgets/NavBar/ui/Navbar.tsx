@@ -3,7 +3,7 @@ import { classNames } from 'shared/lib/classNames/classNames' // classNames util
 import cls from './NavBar.module.scss' // CSS module containing class names for this component
 import { Button, ThemeButton } from 'shared/ui/Button/Button'
 import { useTranslation } from 'react-i18next'
-import { useCallback, useState } from 'react'
+import { memo, useCallback, useState } from 'react'
 
 import { LoginModal } from 'features/AuthByUsername/ui/LoginModal/LoginModal'
 import { useDispatch, useSelector } from 'react-redux'
@@ -15,7 +15,7 @@ interface NavBarProps {
 }
 
 // Defining the Navbar functional component with destructured props
-export const Navbar = ({ className }: NavBarProps) => {
+export const Navbar = memo(({ className }: NavBarProps) => {
     const {t} = useTranslation();
     const dispatch = useDispatch();
 
@@ -63,3 +63,4 @@ export const Navbar = ({ className }: NavBarProps) => {
         </div>
     )
 }
+)

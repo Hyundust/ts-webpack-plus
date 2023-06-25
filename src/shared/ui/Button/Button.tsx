@@ -1,7 +1,7 @@
 // Importing required modules and libraries
 import { classNames } from 'shared/lib/classNames/classNames' // classNames utility function for adding multiple classes to className attribute
 import cls from './Button.module.scss' // CSS module containing class names for this component
-import { type ButtonHTMLAttributes, type FC } from 'react' // ButtonHTMLAttributes interface and FC type from React library for defining a functional component
+import { memo, type ButtonHTMLAttributes, type FC } from 'react' // ButtonHTMLAttributes interface and FC type from React library for defining a functional component
 
 // Defining an enum called ThemeButton which contains CLEAR as a property with value "clear"
 export enum ThemeButton {
@@ -34,7 +34,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 // Defining the functional component Button which takes in ButtonProps as its props
-export const Button: FC<ButtonProps> = (props) => {
+export const Button: FC<ButtonProps> = memo((props) => {
     // Extracting required props from ButtonProps object
     const { className,
             children,
@@ -66,3 +66,4 @@ export const Button: FC<ButtonProps> = (props) => {
         </button>
     )
 }
+)

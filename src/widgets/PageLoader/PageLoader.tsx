@@ -2,6 +2,7 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from "./PageLoader.module.scss"
 import Loader from 'shared/ui/Loader/Loader'
+import { memo } from 'react'
 
 // Defining the props interface for the PageLoader component
 interface PageLoaderProps {
@@ -9,7 +10,7 @@ interface PageLoaderProps {
 }
 
 // Defining a stateless functional component called PageLoader that uses destructuring to get its className parameter
-export const PageLoader = ({ className }: PageLoaderProps) => {
+export const PageLoader = memo(({ className }: PageLoaderProps) => {
     
     // Render the component with a div containing the page__loader class defined in PageLoader.module.scss along with any additional CSS classes passed via the className prop.
     // Inside this div, place the shared ui Loader component.
@@ -18,4 +19,4 @@ export const PageLoader = ({ className }: PageLoaderProps) => {
             <Loader/>
         </div>
     )
-}
+})

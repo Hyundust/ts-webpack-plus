@@ -2,7 +2,7 @@
 import { Link, type LinkProps } from 'react-router-dom' // Link component from react-router-dom library for creating anchor tags to navigate to different routes
 import { classNames } from 'shared/lib/classNames/classNames' // classNames utility function for adding multiple classes to className attribute
 import cls from './AppLink.module.scss' // CSS module containing class names for this component
-import { type FC } from 'react' // FC type from React library for defining a functional component
+import { memo, type FC } from 'react' // FC type from React library for defining a functional component
 
 export enum AppLinkTheme {
     PRIMARY = 'primary',
@@ -18,7 +18,7 @@ interface AppLinkProps extends LinkProps {
 }
 
 // Defining the functional component AppLink which takes in AppLinkProps as its props
-export const AppLink: FC<AppLinkProps> = (props) => {
+export const AppLink: FC<AppLinkProps> = memo((props) => {
     // Extracting required props from AppLinkProps object
     const { to, className, children, theme = AppLinkTheme.PRIMARY, ...otherProps } = props
 
@@ -34,3 +34,4 @@ export const AppLink: FC<AppLinkProps> = (props) => {
         </Link>
     )
 }
+)

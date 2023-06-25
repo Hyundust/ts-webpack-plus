@@ -3,6 +3,7 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import cls from "./ErrorPage.module.scss"
 import { useTranslation } from 'react-i18next'
 import { Button } from 'shared/ui/Button/Button'
+import { memo } from 'react'
 
 // Defining the props interface for the ErrorPage component
 interface ErrorPageProps {
@@ -10,7 +11,7 @@ interface ErrorPageProps {
 }
 
 // Defining a stateless functional component called ErrorPage that uses destructuring to get its className parameter
-export const ErrorPage = ({ className }: ErrorPageProps) => {
+export const ErrorPage = memo(({ className }: ErrorPageProps) => {
     
     // Using the 'useTranslation' hook from the react-i18next library to set up internationalization and translation capabilities
     const {t} = useTranslation();
@@ -30,3 +31,4 @@ export const ErrorPage = ({ className }: ErrorPageProps) => {
         </div>
     )
 }
+)

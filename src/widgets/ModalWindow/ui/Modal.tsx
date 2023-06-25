@@ -83,7 +83,7 @@ export const Modal= ( props : ModalProps) => {
 
     // Callback function to prevent event propagation when clicking inside the modal content
 
-    const onContentClick =useCallback((e:React.MouseEvent)=>{
+    const onContentClick = useCallback((e:React.MouseEvent)=>{
         e.stopPropagation();
     },[])
     
