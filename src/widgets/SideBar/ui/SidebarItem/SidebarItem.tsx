@@ -7,7 +7,7 @@ import { memo } from "react"
 import { classNames } from "shared/lib/classNames/classNames"
 
 export interface LoginFormProps{
-   items?:SideBarItemType
+   items:SideBarItemType
    collapsed:boolean
  }
 
@@ -20,7 +20,7 @@ export const SideBarItem= memo(({items,collapsed}:LoginFormProps) =>  {
    
 
     return (
-        <AppLink theme={AppLinkTheme.SECONDARY} className={classNames(cls.item,{[cls.collapsed]:collapsed})} to={items.path}>
+        <AppLink theme={AppLinkTheme.SECONDARY} className={classNames(cls.item, { [cls.collapsed]: collapsed },[])} to = {items?.path || ""}>
         <items.Icon className={cls.icon}/>
            <span className={cls.link}>
                    {t(items.text)}

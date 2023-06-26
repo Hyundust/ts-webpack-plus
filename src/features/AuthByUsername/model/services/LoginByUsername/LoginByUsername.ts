@@ -5,6 +5,7 @@ import i18n from "shared/config/i18n/i18n";
 import { LOCAL_STORAGE_KEY } from "shared/const/localstorage";
 import { userActions } from "entyes/User";
 import { ThunkConfig } from "app/providers/storeProvider";
+import { ThunkExtraArg } from "app/providers/storeProvider/config/configScheme";
 
 
 export interface LoginByUsernameProps {
@@ -12,7 +13,10 @@ export interface LoginByUsernameProps {
   password: string;
 }
 
-export const loginByUsername = createAsyncThunk< User,LoginByUsernameProps,ThunkConfig<string>>(
+export const loginByUsername = createAsyncThunk<
+                                     User,
+                                     LoginByUsernameProps,
+                                     ThunkConfig<string>>(
   'login/loginByUsername',
   async (authData, {dispatch,extra,rejectWithValue}) => {
       try {
@@ -23,12 +27,12 @@ export const loginByUsername = createAsyncThunk< User,LoginByUsernameProps,Thunk
           }
           localStorage.setItem(LOCAL_STORAGE_KEY,JSON.stringify(response.data))
           dispatch(userActions.setAuthData(response.data))
-          extra.navigate("/about")
+          
          
 
           return response.data;
       } catch (e) {
-          console.log(e);
+          console.log(e); 
           return rejectWithValue("error");
       }
   },

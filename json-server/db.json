@@ -25,6 +25,16 @@
         "password": "123"
       }
     ],
-    "profile": { "name": "typicode" }
-  }
+    "profile": 
+              {
+              "first": "Kostiantyn",
+              "lastname": "Veresiuk",
+              "age": 23,
+              "currency": "PLN",
+              "country": "Poland",
+              "city": "Krakow",
+              "username": "admin",
+              "avatar": "http://www.galex.caltech.edu/media/images/glx2006-03f_img01_small.jpg"
+            }
+}
   

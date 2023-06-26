@@ -1,4 +1,4 @@
-import { ReducersMapObject, configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
+import { CombinedState, ReducersMapObject, configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
 import { StateScheme } from './configScheme'
 import { userReducer } from 'entyes/User'
 import { counterReducer } from 'entyes/Counter/model/slice/CounterSlice'
@@ -6,6 +6,7 @@ import { createReducerManager } from './reducersManager'
 import { NavigateOptions } from "react-router-dom"
 import { To } from "react-router-dom"
 import { $api } from 'shared/api/api'
+import { Reducer } from "@reduxjs/toolkit"
 
 export function createReduxStore(
     initialState?: StateScheme,
@@ -22,7 +23,7 @@ export function createReduxStore(
 
 
   const store = configureStore({
-    reducer: reducerManager.reduce,
+    reducer: reducerManager.reduce as Reducer<CombinedState<StateScheme>>,
     devTools: __IS_DEV__,
     preloadedState: initialState,
     middleware:getDefaultMiddleware=>getDefaultMiddleware({

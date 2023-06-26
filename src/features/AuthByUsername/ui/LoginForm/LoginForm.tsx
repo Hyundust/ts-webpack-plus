@@ -61,17 +61,17 @@ export const LoginForm = memo(({ className,onSubmit}: LoginFormProps) => {
         <ModuleLoad reducers={initialReducers}>
                         <div className={classNames(cls.LoginForm,{},[className,])}>
                     <div className={cls.Header} >{t("Log in into your account")}</div>
-                    {isError && <Text text={t('Something went wrong.Try again')} theme={TextTheme.ERROR}/>}
+                    {isError && <Text text={t('Something went wrong.Try again')|| ""} theme={TextTheme.ERROR}/>}
                     <CustomInput 
                                 className={cls.input}
-                                placeholder={t("Username")}
+                                placeholder={t("Username")|| ""}
                                 autofocus
                                 onChange = {onChangeUsername}
                                 value = {username}
                     />
                     <CustomInput 
                                 className={cls.input}
-                                placeholder={t("Password")}
+                                placeholder={t("Password")|| ""}
                                 onChange = {onChangePassword}
                                 value = {password}
                                 

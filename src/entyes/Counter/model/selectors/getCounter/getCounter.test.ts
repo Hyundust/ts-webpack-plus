@@ -1,6 +1,6 @@
 import { StateScheme } from "app/providers/storeProvider";
 import { getCounter } from "./getCounter";
-import { DeepPartial } from "@reduxjs/toolkit";
+
 
 describe("getCounter function", () => {
 test("should return the counter value from the state when passed the state object with a counter property", () => {

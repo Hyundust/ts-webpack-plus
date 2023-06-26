@@ -1,5 +1,5 @@
 // Importing required modules and libraries
-import { classNames } from 'shared/lib/classNames/classNames' // classNames utility function for adding multiple classes to className attribute
+import { Mods, classNames } from 'shared/lib/classNames/classNames' // classNames utility function for adding multiple classes to className attribute
 import cls from './Button.module.scss' // CSS module containing class names for this component
 import { memo, type ButtonHTMLAttributes, type FC } from 'react' // ButtonHTMLAttributes interface and FC type from React library for defining a functional component
 
@@ -38,13 +38,13 @@ export const Button: FC<ButtonProps> = memo((props) => {
     // Extracting required props from ButtonProps object
     const { className,
             children,
-            theme,
+            theme = ThemeButton.OUTLINE,
             squared,
             disabled,
             size = SizeButton.M,
             ...otherProps } = props
 
-    const mods:Record<string,boolean> = {
+    const mods:Mods = {
         [cls[theme]]:true,
         [cls.squared]:squared,
         [cls[size]]:true,

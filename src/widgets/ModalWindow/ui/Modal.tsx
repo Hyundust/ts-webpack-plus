@@ -1,7 +1,7 @@
 // Importing required modules and libraries
-import { classNames } from 'shared/lib/classNames/classNames' // classNames utility function for adding multiple classes to className attribute
+import { Mods, classNames } from 'shared/lib/classNames/classNames' // classNames utility function for adding multiple classes to className attribute
 import cls from './Modal.module.scss' // CSS module containing class names for this component
-import { ReactNode, useCallback, useEffect, useRef, useState } from 'react'
+import { MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState } from 'react'
 import { Portal } from 'widgets/Portal/Portal'
 import { useTheme } from 'app/providers/themeProvider'
 
@@ -32,7 +32,7 @@ export const Modal= ( props : ModalProps) => {
     
     // Object containing the CSS classes to apply to the modal element based on its state
 
-    const mods :Record<string , boolean> = {
+    const mods :Mods= {
         [cls.isOpened]:isOpen,
         [cls.isClosing]:isClosing,
         
@@ -41,7 +41,7 @@ export const Modal= ( props : ModalProps) => {
 
 
     // Ref to store the ID returned by setTimeout
-    const timerRef = useRef<ReturnType<typeof setTimeout>>();
+    const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
 
 
     // Function to close the modal

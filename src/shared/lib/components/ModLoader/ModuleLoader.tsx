@@ -9,7 +9,6 @@ export type ReducerList = {
     [name in StateSchemeKey]?:Reducer
 }
 
-type ReducerListEntry =[StateSchemeKey,Reducer]
 
 
 export interface ModuleLoadProps {
@@ -28,17 +27,17 @@ export const ModuleLoad: FC<ModuleLoadProps> = (props) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        Object.entries(reducers).forEach(([name,reducer]:ReducerListEntry)=>{
+        Object.entries(reducers).forEach(([name,reducer])=>{
 
-            store.reducerManager.add(name, reducer);
+            store.reducerManager.add(name as StateSchemeKey, reducer);
             dispatch({ type: `@INIT ${reducer}` });
         
         });
         return () => {
             if(removeAfterUnMount){
-                Object.entries(reducers).forEach(([name,reducer]:ReducerListEntry)=>{
+                Object.entries(reducers).forEach(([name,reducer])=>{
                 
-                        store.reducerManager.remove(name);
+                        store.reducerManager.remove(name as StateSchemeKey);
                         dispatch({ type: `@DESTROY ${reducer}` });
                     })}
                 }},[])

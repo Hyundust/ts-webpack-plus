@@ -1,5 +1,5 @@
 // Define a type Mods as a Record with string keys and boolean/string values
-type Mods = Record<string, boolean | string>
+export type Mods = Record<string, boolean | string | undefined>
 
 /**
  * A function to generate a class name string from a base class name,
@@ -11,7 +11,7 @@ type Mods = Record<string, boolean | string>
  * @param additional - An array of additional class names.
  * @returns A string containing all the class names concatenated together.
  */
-export function classNames (cls: string, mods: Mods = {}, additional: string[] = []): string {
+export function classNames (cls: string, mods: Mods = {}, additional: Array<string | undefined>): string {
     return [
         cls, // Add the base class to the beginning of the array.
         ...additional.filter(Boolean), // Spread the additional classes array into the array.

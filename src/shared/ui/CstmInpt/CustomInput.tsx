@@ -22,7 +22,7 @@ export const CustomInput = memo((props:CustomProps) =>  {
         value,
         onChange,
         type = "text",
-        placeholder,
+        placeholder = "",
         autofocus,
         ...otherProps
             } = props

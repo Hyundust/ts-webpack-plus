@@ -17,14 +17,14 @@ export function useTheme (): UseThemeResult {
     // Creating a function called toggleTheme that changes the current theme to its opposite form and saves the new theme preference in localStorage.
     const toggleTheme = () => {
         const newTheme = theme === Theme.Light ? Theme.Dark : Theme.Light
-        setTheme(newTheme);
+        setTheme?.(newTheme);
         document.body.className = newTheme
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme)
     }
 
     // Returning an object with theme and toggleTheme properties.
     return {
-        theme,
+        theme:theme || Theme.Light,
         toggleTheme
     }
 }
