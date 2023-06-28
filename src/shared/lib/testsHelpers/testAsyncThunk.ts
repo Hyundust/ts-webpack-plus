@@ -19,18 +19,23 @@ export class TestAsyncThunk<Return, Arg, RejectedValue> {
   api: jest.MockedFunctionDeep<AxiosStatic>;
   navigate: jest.MockedFn<any>;
 
-  constructor(actionCreator: ActionCreatorType<Return, Arg, RejectedValue> ){
+  constructor(
+    actionCreator: ActionCreatorType<Return, Arg, RejectedValue>,
+    state?:DeepPartial<StateScheme>
+     ){
     this.dispatch = jest.fn();
-    this.getState = jest.fn();
+    this.getState = jest.fn(()=>state as StateScheme);
     this.actionCreator = actionCreator;
     this.api = mockedAxios
     this.navigate = jest.fn();
   }
 
   // A method that calls the async thunk with the specified `arg` parameter
-  async CallThunk(arg:Arg){
+  async callThunk(arg:Arg){
     const action = this.actionCreator(arg); // Create the async thunk action
-    const result = await action(this.dispatch, this.getState, {api:this.api,navigate:this.navigate}); // Dispatch the async thunk and wait for its completion
+    const result = await action(
+        this.dispatch, this.getState, 
+        {api:this.api,navigate:this.navigate}); // Dispatch the async thunk and wait for its completion
     return result; // Return the result of the async thunk
   }
 }
