@@ -1,40 +1,38 @@
 {
-    "posts": [
-      {
-        "id": 1,
-        "title": "json-server",
-        "userId": 1
-      },
-      {
-        "id": 2,
-        "title": "json-server",
-        "userId": 2
-      }
-    ],
-    "comments": [
-      {
-        "id": 1,
-        "body": "some comment",
-        "postId": 1
-      }
-    ],
-    "users": [
-      {
-        "id": 1,
-        "username": "admin",
-        "password": "123"
-      }
-    ],
-    "profile": 
-              {
-              "first": "Kostiantyn",
-              "lastname": "Veresiuk",
-              "age": 23,
-              "currency": "PLN",
-              "country": "Poland",
-              "city": "Krakow",
-              "username": "admin",
-              "avatar": "http://www.galex.caltech.edu/media/images/glx2006-03f_img01_small.jpg"
-            }
+  "posts": [
+    {
+      "id": "1",
+      "title": "json-server",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "title": "json-server",
+      "userId": "2"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "body": "some comment",
+      "postId": "1"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "123"
+    }
+  ],
+  "profile": {
+    "first": "Kostiantyn",
+    "lastname": "VERESIUK",
+    "age": 23,
+    "currency": "SEK",
+    "country": "Russia",
+    "city": "Krakow",
+    "username": "admin213",
+    "avatar": "https://yt3.ggpht.com/ytc/AAUvwngFzM_Rf6MNwOnFcuphoj93k7VFjlIrj-kSMxbh=s900-c-k-c0x00ffffff-no-rj"
+  }
 }
-  

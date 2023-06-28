@@ -12,9 +12,9 @@ import { To,NavigateOptions } from "react-router-dom"
 export interface StateScheme{
   counter:CounterScheme
   user:UserScheme
-  profile?:ProfileScheme
   //async reducer
   loginForm?:LoginScheme
+  profile?:ProfileScheme
 
 }
 export type StateSchemeKey = keyof StateScheme;
@@ -42,4 +42,7 @@ export interface ThunkExtraArg{
 export interface ThunkConfig<T>{
   rejectValue: T
   extra:ThunkExtraArg
+  state:StateScheme
+
+
 }

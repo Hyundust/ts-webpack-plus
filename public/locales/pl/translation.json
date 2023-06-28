@@ -14,6 +14,21 @@
   "Something went wrong": {
     "Try again": "Coś poszło nie tak.Sprobuj ponownie"
   },
-  "Log out": "Wyloguj się\n",
-  "Profile Page": "Profile"
+  "Log out": "Wyloguj się",
+  "Profile Page": "Profile",
+  "User Name": "Profil użytkownika",
+  "Last Name": "Nazwisko",
+  "Name": "Imię użytkownika",
+  "An error occured": "Wystąpił bląd",
+  "Try again": "Sprobuj ponownie",
+  "User Profile": "Profil użytkownika",
+  "Edit": "Zmiana",
+  "Cancel": "Powrót",
+  "Save": "Zatwierdż",
+  "Age": "Wiek",
+  "City": "Nazwa użytkownika",
+  "Avatar": "Avatar",
+  "Link for Avatar": "Link do awatara",
+  "Choose currency": "Wybierz walutę",
+  "Choose country": "Wybierz kraj"
 }

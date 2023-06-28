@@ -67,3 +67,10 @@ font:var(--font-l)
 .disabled{
     opacity: 0.5;
 }
+.confirmRed{
+    color: var(--error-color);
+}
+.confirmGreen{
+    color: var(--confirm-color);
+
+}

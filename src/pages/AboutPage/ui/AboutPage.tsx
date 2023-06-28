@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 
-export const AboutPage = () => {
+const AboutPage = () => {
     const { t } = useTranslation('about')
 
     return (
@@ -12,3 +12,4 @@ export const AboutPage = () => {
     )
 }
 
+export default AboutPage

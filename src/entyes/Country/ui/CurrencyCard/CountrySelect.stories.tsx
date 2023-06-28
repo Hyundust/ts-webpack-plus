@@ -2,9 +2,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 // We are importing the `Button` and `ThemeButton` components from the './Button' file
-import { MainPage } from './MainPage';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
-import { Theme } from 'app/providers/themeProvider';
+import { CountrySelect } from './CountrySelect';
+
 
 
 // We declare an object `meta` with two properties: `title` and `component`.
@@ -12,9 +11,12 @@ import { Theme } from 'app/providers/themeProvider';
 // `component` is the component that we are writing the story for.
 // `satisfies` property ensures that the `meta` object strictly follows the `Meta` type.
 const meta = {
-  title: 'pages/MainPage ',
-  component:MainPage ,
-} satisfies Meta<typeof MainPage >;
+  title: 'entyes/ CountrySelect',
+  component:  CountrySelect ,
+  args:{
+    
+  }
+} satisfies Meta<typeof CountrySelect>;
 
 // Exporting the `meta` object as default.
 export default meta;
@@ -30,12 +32,14 @@ type Story = StoryObj<typeof meta>;
 // Both of these stories belongs to `Button` component.
 export const Primary: Story = {
   args: {   
+       
   },
 };
 
 
 export const Secondary: Story = {
   args: {
+
   },
 };
-Secondary.decorators = [ThemeDecorator(Theme.Dark)]
+

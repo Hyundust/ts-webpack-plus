@@ -6,8 +6,7 @@ import { createReduxStore } from "../config/store"
 import { StateScheme } from "../config/configScheme"
 import {  ReducersMapObject } from "@reduxjs/toolkit"
 import { useNavigate } from "react-router-dom"
-import { NavigateOptions } from "react-router-dom"
-import { To } from "react-router-dom"
+
 
 export interface StoreProviderProps{
     children: ReactNode,

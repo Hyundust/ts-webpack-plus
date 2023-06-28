@@ -1,9 +1,12 @@
 {
   "profile": {
-    "User Profile": "Profil użytkownika\n",
-    "Edit": "Zmienić\n",
-    "User Name": "Imię użytkownika\n",
+    "User Name": "Profil użytkownika",
     "Last Name": "Nazwisko",
-    "Name": "Imię"
+    "Name": "Imię użytkownika",
+    "An error occured": "Wystąpił bląd",
+    "Try again": "Sprobuj ponownie",
+    "User Profile": "Profil użytkownika",
+    "Edit": "Zmiana",
+    "Cancel": "Powrót"
   }
 }

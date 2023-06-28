@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next'
 
-export const MainPage = () => {
+const MainPage = () => {
     const { t } = useTranslation();
     const [value,setValue] = useState("")
 
@@ -21,4 +21,4 @@ export const MainPage = () => {
     )
 }
 
-
+export default MainPage

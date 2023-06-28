@@ -1,9 +1,13 @@
 {
   "profile": {
-    "User Profile": "User Profile",
+    "User Profile": "User profile",
     "Edit": "Edit",
+    "Cancel": "Cancel",
     "User Name": "User Name",
     "Last Name": "Lastname",
-    "Name": "Name"
+    "Name": "Name",
+    "An error occured": "An error occured",
+    "Try again": "Try again"
+  
   }
 }

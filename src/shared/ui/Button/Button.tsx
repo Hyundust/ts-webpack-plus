@@ -9,7 +9,11 @@ export enum ThemeButton {
     CLEAR_INVERTED = "clearInverted",
     OUTLINE = "outline",
     BACKGROUND = "background",
-    BACKGROUND_INVERTED = "backgroundInverted"
+    BACKGROUND_INVERTED = "backgroundInverted",
+    CONFIRM_GREEN = "confirmGreen",
+    CONFIRM_RED = "confirmRed",
+   
+
 
 }
 export enum SizeButton{

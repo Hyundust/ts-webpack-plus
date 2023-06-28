@@ -18,12 +18,14 @@ export function ComponentRender(Component:ReactNode,options:ComponentRenderProps
             initialState
     } = options
     render(
-        <StoreProvider initialState={initialState as StateScheme}>
-            <MemoryRouter initialEntries={[route]}>
-                <I18nextProvider i18n={i18n}>
-                    {Component}
-                </I18nextProvider>
-            </MemoryRouter>
-        </StoreProvider>
+        <MemoryRouter initialEntries={[route]}>
+                <StoreProvider initialState={initialState as StateScheme}>
+                    
+                        <I18nextProvider i18n={i18n}>
+                            {Component}
+                        </I18nextProvider>
+                    
+                </StoreProvider>
+        </MemoryRouter>
     )
 }

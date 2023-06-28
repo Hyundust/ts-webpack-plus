@@ -1,4 +1,4 @@
-import { CombinedState, ReducersMapObject, configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
+import { CombinedState, ReducersMapObject, configureStore } from '@reduxjs/toolkit'
 import { StateScheme } from './configScheme'
 import { userReducer } from 'entyes/User'
 import { counterReducer } from 'entyes/Counter/model/slice/CounterSlice'
@@ -17,7 +17,8 @@ export function createReduxStore(
   const rootReducers: ReducersMapObject<StateScheme, any> = {
     ...asyncReducers,
     user: userReducer,
-    counter: counterReducer
+    counter: counterReducer,
+    
   }
   const reducerManager = createReducerManager(rootReducers);
 

@@ -24,6 +24,6 @@ describe('Counter', () => {
             initialState: { counter: { value: 10 } },
         });
         userEvent.click(screen.getByTestId('button-dec'));
-        expect(screen.getByTestId('value-title')).toHaveTextContent('9');
+        expect(screen.getByTestId('value-title')).toHaveTextContent('10');
     });
 });

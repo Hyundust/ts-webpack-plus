@@ -16,3 +16,7 @@ export {
 export {
     ProfileCard
 } from "./ui/ProfileCard/ProfileCard"
+
+export {
+    updateProfileData
+} from "./model/services/UpdateProfileData/UpdateProfileData"

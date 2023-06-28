@@ -15,5 +15,19 @@
     "Try again": "Something went wrong.Try again\n"
   },
   "Log out": "Log out",
-  "Profile Page": "Profile\n"
+  "Profile Page": "Profile\n",
+  "User Profile": "User Profile",
+  "Edit": "Edit",
+  "Cancel": "Cancel",
+  "Name": "Name",
+  "Try again": "Try again!",
+  "An error occured": "An error occured!",
+  "Last Name": "Lastname",
+  "Save": "Save",
+  "Age": "Age",
+  "City": "User Handle",
+  "Avatar": "Avatar",
+  "Link for Avatar": "Link for Avatar",
+  "Choose currency": "Choose currency",
+  "Choose country": "Choose country"
 }
