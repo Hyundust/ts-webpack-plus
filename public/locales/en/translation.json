@@ -29,5 +29,10 @@
   "Avatar": "Avatar",
   "Link for Avatar": "Link for Avatar",
   "Choose currency": "Choose currency",
-  "Choose country": "Choose country"
+  "Choose country": "Choose country",
+  "SERVER ERROR": "SERVER ERROR",
+  "Wrong region": "Wrong region",
+  "There is no data": "There is no data",
+  "You must provide name and surname": "You must provide name and surname",
+  "Incorrect age": "Wrong age"
 }

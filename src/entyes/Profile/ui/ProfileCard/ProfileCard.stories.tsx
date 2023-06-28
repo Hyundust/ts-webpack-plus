@@ -1,22 +1,20 @@
 // We are importing the types `Meta` and `StoryObj` from `@storybook/react`
 import type { Meta, StoryObj } from '@storybook/react';
-
-// We are importing the `Button` and `ThemeButton` components from the './Button' file
-import ProfilePage from './ProfilePage';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from 'app/providers/themeProvider';
-import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
+import { ProfileCard } from './ProfileCard';
 import { Country } from 'entyes/Country';
 import { Currency } from 'entyes/Currency';
+
 
 // We declare an object `meta` with two properties: `title` and `component`.
 // `title` specifies the name of the storybook which we will see in the left sidebar of the storybook UI.
 // `component` is the component that we are writing the story for.
 // `satisfies` property ensures that the `meta` object strictly follows the `Meta` type.
 const meta = {
-  title: 'pages/ProfilePage',
-  component: ProfilePage,
-} satisfies Meta<typeof ProfilePage>;
+  title: 'entyes/ProfileCard',
+  component: ProfileCard,
+} satisfies Meta<typeof ProfileCard>;
 
 // Exporting the `meta` object as default.
 export default meta;
@@ -32,37 +30,30 @@ type Story = StoryObj<typeof meta>;
 // Both of these stories belongs to `Button` component.
 export const Primary: Story = {
   args: {   
-  },
-};
-Primary.decorators = [StoreDecorator({
-  profile:{
-    form:{
+    data:{
         first: 'John Doe',
         lastname: 'RektFencer',
         city: 'New York',
         country: Country.Czech,
         age:23,
-        currency:Currency.CNY,
-        username:"steampunk"
-    }  
+        currency:Currency.CNY
+        
+    }
 }
-})]
+}
 
-
-export const Secondary: Story = {
+export const SecondaryERROR: Story = {
   args: {
+    error:"true"
+   
   },
 };
-Secondary.decorators = [ThemeDecorator(Theme.Dark),StoreDecorator({
-  profile:{
-    form:{
-        first: 'John Doe',
-        lastname: 'RektFencer',
-        city: 'New York',
-        country: Country.Czech,
-        age:23,
-        currency:Currency.CNY,
-        username:"steampunk"
-    }  
-}
-})]
+SecondaryERROR.decorators = [ThemeDecorator(Theme.Dark)]
+
+export const ThirdLoading: Story = {
+    args: {
+      loading:true
+     
+    },
+  };
+  ThirdLoading.decorators = [ThemeDecorator(Theme.Dark)]

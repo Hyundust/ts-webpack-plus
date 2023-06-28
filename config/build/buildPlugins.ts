@@ -6,7 +6,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import {BundleAnalyzerPlugin} from "webpack-bundle-analyzer"
 
 // Defining a function called buildPlagins that takes an object with paths property and returns an array of Webpack plugins.
-export function buildPlagins ({ paths, isDev,apiUrl }: BuildOptions): webpack.WebpackPluginInstance[] {
+export function buildPlagins ({ paths, isDev,apiUrl,project }: BuildOptions): webpack.WebpackPluginInstance[] {
     const plugins = [
         new HtmlWebpackPlugin({ template: paths.html }),
         new webpack.ProgressPlugin(),
@@ -16,7 +16,8 @@ export function buildPlagins ({ paths, isDev,apiUrl }: BuildOptions): webpack.We
         }),
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
-            __API__:JSON.stringify(apiUrl)
+            __API__:JSON.stringify(apiUrl),
+            __PROJECT__:JSON.stringify(project)
         }),
 
 

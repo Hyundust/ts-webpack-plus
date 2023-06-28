@@ -30,5 +30,10 @@
   "Avatar": "Avatar",
   "Link for Avatar": "Link do awatara",
   "Choose currency": "Wybierz walutę",
-  "Choose country": "Wybierz kraj"
+  "Choose country": "Wybierz kraj",
+  "SERVER ERROR": "BŁĄD SERWERA",
+  "Wrong region": "Zły region",
+  "There is no data": "Nie ma danych",
+  "You must provide name and surname": "Musisz podać imię i nazwisko",
+  "Incorrect age": "Zły wiek"
 }

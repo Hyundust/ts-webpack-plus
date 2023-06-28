@@ -46,13 +46,15 @@ export const ProfileCard = (props:ProfileCardProps) =>  {
     const {t} = useTranslation()
     
    if(loading){
+    return(
            <div className={classNames(cls.ProfileCard,{},[className,cls.loading])}>
 
                                  <Loader/>
 
                 </div>
-   }
+   )}
    if(error){
+    return(
         <div className={classNames(cls.ProfileCard,{},[className,cls.error])}>
                
                     <Text theme={TextTheme.ERROR}  
@@ -62,7 +64,7 @@ export const ProfileCard = (props:ProfileCardProps) =>  {
                                  
 
                     </div>
-   }
+   )}
 
    const mods:Mods = {
     [cls.editing]:!readonly
