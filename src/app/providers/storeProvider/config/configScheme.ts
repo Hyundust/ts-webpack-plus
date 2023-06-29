@@ -8,6 +8,7 @@ import { CombinedState} from "@reduxjs/toolkit"
 import { ProfileScheme } from "entyes/Profile"
 import { AxiosInstance } from "axios"
 import { To,NavigateOptions } from "react-router-dom"
+import { ArticleDetailsSchema } from "entyes/Article/model/types/articleDetailsScheme"
 
 export interface StateScheme{
   counter:CounterScheme
@@ -15,6 +16,8 @@ export interface StateScheme{
   //async reducer
   loginForm?:LoginScheme
   profile?:ProfileScheme
+  articleDetails?:ArticleDetailsSchema
+  
 
 }
 export type StateSchemeKey = keyof StateScheme;
