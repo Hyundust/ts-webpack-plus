@@ -4,7 +4,9 @@ import { createContext } from 'react'
 // Defining an enum 'Theme' which has two properties.
 export enum Theme {
     Light = 'app_light_theme',
-    Dark = 'app_dark_theme'
+    Dark = 'app_dark_theme',
+    Orange = 'app_orange_theme'
+
 }
 
 // Declaring an interface for props that will be needed in App.tsx

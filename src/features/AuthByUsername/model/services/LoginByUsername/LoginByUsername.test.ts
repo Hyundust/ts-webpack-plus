@@ -13,7 +13,7 @@ describe("loginByUsername",() => {
                 }
         const thunk = new TestAsyncThunk(loginByUsername)
         thunk.api.post.mockReturnValue(Promise.resolve({data:{username:"123",id:"1"}}));
-        const result = thunk.CallThunk({ username: '123', password: '123' })
+        const result = thunk.callThunk({ username: '123', password: '123' })
         
         console.log(result)
         expect(thunk.api.post).toHaveBeenCalled();
@@ -30,7 +30,7 @@ describe("loginByUsername",() => {
             
             const thunk = new TestAsyncThunk(loginByUsername)
             thunk.api.post.mockReturnValue(Promise.resolve({status:403}));
-            const result = thunk.CallThunk({ username: '123', password: '123' })
+            const result = thunk.callThunk({ username: '123', password: '123' })
             
             console.log(result);
             expect(thunk.api.post).toHaveBeenCalled();

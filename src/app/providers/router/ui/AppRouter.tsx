@@ -1,40 +1,43 @@
 // Importing necessary modules and libraries
-import { Suspense, useMemo } from 'react' // A component that enables rendering fallback content while waiting for something to load. 
-import { useSelector } from 'react-redux'
-import { Route, Routes } from 'react-router-dom' // Routing components provided by react-router-dom library
-import { RouteConfig } from 'shared/config/routeConfig/routeConfig' // Object containing the configurations required for routing
-import { PageLoader } from 'widgets/PageLoader/PageLoader' // A loading spinner component 
-import { getUserData } from 'entyes/User'
-import { memo } from 'react'
+import { Suspense, useCallback } from 'react'; // Importing the required hooks from React
+import { Route, Routes } from 'react-router-dom'; // Importing the Route and Routes components from react-router-dom
+import { AppRoutesProps, RouteConfig } from 'shared/config/routeConfig/routeConfig'; // Importing AppRoutes and RouteConfig from shared/config/routeConfig/routeConfig
+import { PageLoader } from 'widgets/PageLoader/PageLoader'; // Importing the PageLoader component from widgets/PageLoader/PageLoader
+import { memo } from 'react'; // Importing the memo function from React
+import { RequireAuth } from './RequireAuth';
+
 // Defining the AppRouter functional component
 const AppRouter = () => {
 
-    const isItAuth = useSelector(getUserData);
+    // Define a renderWithWrapper callback function using useCallback hook
+    const renderWithWrapper = useCallback((route:AppRoutesProps) => {
 
-    const routes = useMemo(()=>{
-        return Object.values(RouteConfig).filter(routes=>{
-            if(routes.authOnly && !isItAuth){
-                return false;
-            }
-            return true
-        })
-        },[isItAuth])
+        // Create the element with suspense fallback for lazy loading
+        const element = (
+            <Suspense fallback={<PageLoader/>}>
+                <div className='page-wrapper'>
+                    {route.element} {/* The component itself specified in RouteConfig */}
+                </div>
+            </Suspense>
+        );
+        
+        // Return a Route component with the specified path and element, wrapped with authentication check if necessary
+        return (
+            <Route
+                key={route.path}
+                path={route.path}
+                element={route.authOnly ? <RequireAuth children={element}/> : element}
+            />
+        );
+    }, []);
+
+    // Render the Routes component and map through all routes defined in RouteConfig
+    // For each route, call the renderWithWrapper callback function to render the route with proper wrapping
     return (
-        <Routes> {/* Where to render the components based on the given paths */}
-            {routes.map(({ element, path }) => ( /* Mapping through each route object in RouteConfig and rendering the corresponding component with its path */
-                <Route
-                    key={path}
-                    path={path}
-                    element={(/* Wrapping the element prop with Suspense to show a loader until the component is loaded*/
-                        <Suspense fallback={<PageLoader/>}>
-                            <div className='page-wrapper'>
-                                {element} {/* The component itself specified in RouteConfig */}
-                            </div>
-                        </Suspense>)}
-                />
-            ))}
+        <Routes> 
+            {Object.values(RouteConfig).map(renderWithWrapper)}
         </Routes>
-    )
+    );
 }
 
-export default memo(AppRouter)
+export default memo(AppRouter); // Memoize the AppRouter component to optimize rendering performance

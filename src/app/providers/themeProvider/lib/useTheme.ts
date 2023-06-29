@@ -1,7 +1,7 @@
 // Importing the useContext hook from React and importing LOCAL_STORAGE_THEME_KEY, ThemeContext, and Theme enums from the themeContext file.
 import { useContext } from 'react'
 import { LOCAL_STORAGE_THEME_KEY, ThemeContext, Theme } from 'app/providers/themeProvider/lib/themeContext'
-import { doesNotMatch } from 'assert'
+
 
 // Defining an interface called UseThemeResult, which has two properties: toggleTheme function and theme property.
 interface UseThemeResult {
@@ -16,7 +16,20 @@ export function useTheme (): UseThemeResult {
 
     // Creating a function called toggleTheme that changes the current theme to its opposite form and saves the new theme preference in localStorage.
     const toggleTheme = () => {
-        const newTheme = theme === Theme.Light ? Theme.Dark : Theme.Light
+        let newTheme : Theme
+        switch(theme){
+            case Theme.Light:
+                newTheme = Theme.Orange
+                break;
+            case Theme.Orange:
+                    newTheme = Theme.Dark
+                    break;
+            case Theme.Dark:
+                        newTheme = Theme.Light
+                        break;
+            default:
+                newTheme = Theme.Light
+        }
         setTheme?.(newTheme);
         document.body.className = newTheme
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme)

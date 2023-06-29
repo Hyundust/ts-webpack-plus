@@ -2,11 +2,11 @@
 @import "themes/dark";
 @import "themes/light";
 @import "reset";
-
+@import "themes/orange";
 
 body{
-    color: var(--primary-color);
-    font: var(--font-m);
+    color:var(--primary-color);
+    font:var(--font-m);
 }
 
 

@@ -4,17 +4,17 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next'
 
 const MainPage = () => {
-    const { t } = useTranslation();
-    const [value,setValue] = useState("")
 
-    const changeValue = (value:string) =>{
-        setValue(value)
-    }
+    
+    const { t } = useTranslation();
+
+
+    
 
 
 
     return (
-        <div>
+        <div style={{color:"blue"}}>
 
             {t('Chasing')}
         </div>
