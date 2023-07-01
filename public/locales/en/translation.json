@@ -34,5 +34,6 @@
   "Wrong region": "Wrong region",
   "There is no data": "There is no data",
   "You must provide name and surname": "You must provide name and surname",
-  "Incorrect age": "Wrong age"
+  "Incorrect age": "Wrong age",
+  "Article not found": "Article not found"
 }

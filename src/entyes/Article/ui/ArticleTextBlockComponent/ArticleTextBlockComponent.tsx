@@ -12,7 +12,7 @@ const reducers:ReducerList = {
     articleDetails:articleReducer
 }
 
-export const StoreProvider = ({className}:ArticleTextBlockComponentProps) =>  {
+export const ArticleTextBlockComponent = ({className}:ArticleTextBlockComponentProps) =>  {
 
     const {t} = useTranslation()
 

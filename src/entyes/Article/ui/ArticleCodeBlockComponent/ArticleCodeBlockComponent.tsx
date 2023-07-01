@@ -8,7 +8,7 @@ export interface ArticleCodeBlockProps{
 
 
 
-export const StoreProvider = ({className}:ArticleCodeBlockProps) =>  {
+export const ArticleCodeBlockComponent = ({className}:ArticleCodeBlockProps) =>  {
 
     const {t} = useTranslation()
 

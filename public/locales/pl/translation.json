@@ -35,5 +35,6 @@
   "Wrong region": "Zły region",
   "There is no data": "Nie ma danych",
   "You must provide name and surname": "Musisz podać imię i nazwisko",
-  "Incorrect age": "Zły wiek"
+  "Incorrect age": "Zły wiek",
+  "Article not found": "Nie znaleziono artykułu"
 }

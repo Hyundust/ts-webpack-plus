@@ -7,6 +7,14 @@ import { ModuleLoad } from "shared/lib/components/ModLoader/ModuleLoader"
 import { memo, useEffect } from "react"
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch"
 import { fetchArticleById } from "entyes/Article/model/services/fetchArticalById"
+import { useSelector } from "react-redux"
+import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from "entyes/Article/model/selector/getArticleDetails"
+import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent"
+import { useCallback } from "react"
+import { ArticleBlock } from "entyes/Article/model/types/article"
+import { ArticleCodeBlockComponent } from "../ArticleCodeBlockComponent/ArticleCodeBlockComponent"
+import { ArticleImgBlockComponent } from "../ArticleImgBlockComponent/ArticleImgBlockComponent"
+import { ArticleBlockType } from "entyes/Article/model/types/article"
 
 
 export interface ArticleDetailsProps{
@@ -21,11 +29,46 @@ export interface ArticleDetailsProps{
 export const ArticleDetails = memo(({className,id}:ArticleDetailsProps) =>  {
 
     const {t} = useTranslation()
-    const  dispatch = useAppDispatch();
+    const dispatch = useAppDispatch();
+    const isLoading = useSelector(getArticleDetailsIsLoading);
+    const error = useSelector(getArticleDetailsError);
+    const article = useSelector(getArticleDetailsData);
+    const renderBlock = useCallback((block: ArticleBlock) => {
+        switch (block.type) {
+        case ArticleBlockType.CODE:
+            return (
+                <ArticleCodeBlockComponent
+                    key={block.id}
+                    block={block}
+                    className={cls.block}
+                />
+            );
+        case ArticleBlockType.IMAGE:
+            return (
+                <ArticleImgBlockComponent
+                    key={block.id}
+                    block={block}
+                    className={cls.block}
+                />
+            );
+        case ArticleBlockType.TEXT:
+            return (
+                <ArticleTextBlockComponent
+                    key={block.id}
+                    className={cls.block}
+                    block={block}
+                />
+            );
+        default:
+            return null;
+        }
+    }, []);
+
+
 
     useEffect(()=>{
         dispatch(fetchArticleById(id || "1"))
-    },[dispatch])
+    },[dispatch,id])
    
 
     return (
