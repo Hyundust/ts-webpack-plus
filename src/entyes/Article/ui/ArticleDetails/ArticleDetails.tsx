@@ -21,6 +21,9 @@ import { ArticleBlockType } from "entyes/Article/model/types/article"
 import { Skeleton } from "shared/ui/Skeleton/Skeleton"
 import { TextSize } from "shared/ui/Text/Text"
 import { Icon } from "shared/ui/Icon/Icon"
+import EyeIcon from "shared/assets/icons/eye-20-20.svg"
+import CalendarIcon from "shared/assets/icons/calendar-20-20.svg"
+
 
 
 export interface ArticleDetailsProps{
@@ -95,7 +98,7 @@ export const ArticleDetails = memo(({className,id}:ArticleDetailsProps) =>  {
         content = (
             <Text
                 align={TextAlign.CENTER}
-                title={t('Произошла ошибка при загрузке статьи.')|| ""}
+                title={t("Something went wrong.Try again")|| ""}
             />
         );
     } else {

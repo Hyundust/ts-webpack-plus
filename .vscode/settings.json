@@ -4,5 +4,6 @@
         "src/shared/config/i18n"
     ],
     "i18n-ally.keystyle": "nested",
-    "stylelint.enable": true
+    "stylelint.enable": true,
+    "git.ignoreLimitWarning": true
 }

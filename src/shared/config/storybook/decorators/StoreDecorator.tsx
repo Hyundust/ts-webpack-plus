@@ -6,11 +6,13 @@ import {  ReducersMapObject } from "@reduxjs/toolkit";
 import { loginReducer } from "features/AuthByUsername/model/slice/loginSlice";
 import { profileReducer } from "entyes/Profile";
 import { ReducerList } from "shared/lib/components/ModLoader/ModuleLoader";
+import { articleReducer } from "entyes/Article";
 
 // Defining defaultReducers object with loginForm reducer
 const defaultAsyncReducers: ReducerList = {
     loginForm: loginReducer,
-    profile:profileReducer
+    profile:profileReducer,
+    articleDetails:articleReducer
   };
   
 
