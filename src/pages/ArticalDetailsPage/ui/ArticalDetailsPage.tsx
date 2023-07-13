@@ -29,8 +29,8 @@ const ArticalDetailsPage = memo(({className}:ArticalDetailsPageProps) =>  {
         <div className={classNames(cls.ArticalDetails,{},[className])}>
             <ArticleDetails id={id}/>
             <Text className={cls.commentTitle} title = {t("Comments")|| ""}/>
-            <CommentItem/>
-        </div>
+            <CommentItem isLoading comments={[]}/>
+        </div>  
     )
 
 

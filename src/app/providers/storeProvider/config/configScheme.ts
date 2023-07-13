@@ -9,6 +9,7 @@ import { ProfileScheme } from "entyes/Profile"
 import { AxiosInstance } from "axios"
 import { To,NavigateOptions } from "react-router-dom"
 import { ArticleDetailsSchema } from "entyes/Article/model/types/articleDetailsScheme"
+import { ArticleDetailsCommentScheme } from "pages/ArticalDetailsPage"
 
 export interface StateScheme{
   counter:CounterScheme
@@ -17,6 +18,7 @@ export interface StateScheme{
   loginForm?:LoginScheme
   profile?:ProfileScheme
   articleDetails?:ArticleDetailsSchema
+  articleDetailsComments?:ArticleDetailsCommentScheme
   
 
 }
