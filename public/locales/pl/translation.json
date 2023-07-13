@@ -36,5 +36,7 @@
   "There is no data": "Nie ma danych",
   "You must provide name and surname": "Musisz podać imię i nazwisko",
   "Incorrect age": "Zły wiek",
-  "Article not found": "Nie znaleziono artykułu"
+  "Article not found": "Nie znaleziono artykułu",
+  "Comments": "Komentarze",
+  "There is no comments at the moment": "W tej chwili nie ma żadnych komentarzy"
 }

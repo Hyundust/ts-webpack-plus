@@ -4,6 +4,8 @@ import { useTranslation } from "react-i18next"
 import { memo } from "react"
 import { ArticleDetails } from "entyes/Article"
 import { useParams } from "react-router-dom"
+import { Text } from "shared/ui/Text/Text"
+import { CommentItem } from "entyes/Comments/ui/CommentItem/CommentItem"
 
 export interface ArticalDetailsPageProps{
     className?: string
@@ -26,6 +28,8 @@ const ArticalDetailsPage = memo(({className}:ArticalDetailsPageProps) =>  {
     return (
         <div className={classNames(cls.ArticalDetails,{},[className])}>
             <ArticleDetails id={id}/>
+            <Text className={cls.commentTitle} title = {t("Comments")|| ""}/>
+            <CommentItem/>
         </div>
     )
 
