@@ -89,39 +89,65 @@
       "id": "1",
       "text": "some comment",
       "articleId": "1",
-      "userId": "1",
-      "avatar": "https://yt3.ggpht.com/ytc/AAUvwngFzM_Rf6MNwOnFcuphoj93k7VFjlIrj-kSMxbh=s900-c-k-c0x00ffffff-no-rj"
+      "userId": "1"
     },
     {
       "id": "2",
       "text": "some comment 2",
       "articleId": "1",
-      "userId": "1",
-      "avatar": "https://i1.rgstatic.net/ii/profile.image/913210886610946-1594737850273_Q512/Abiot-Tessema.jpg"
+      "userId": "1"
     },
     {
       "id": "3",
       "text": "some comment 3",
       "articleId": "1",
+      "userId": "1"
+    },
+    {
+      "articleId": "1",
       "userId": "1",
-      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuhX378RqXlyqx3ITlxg_lCRCviJfuuj-Llg&usqp=CAU"
+      "text": "nigrilla dao",
+      "id": "5PFjkzY"
     }
   ],
   "users": [
     {
       "id": "1",
       "username": "admin",
-      "password": "123"
+      "password": "123",
+      "role": "ADMIN",
+      "avatar": "https://kyruus-app-static.kyruus.com/providermatch/piedmont/photos/200/lemma-abiot-1184111411.jpg?1667514924460"
+    },
+    {
+      "id": "2",
+      "username": "user",
+      "password": "123",
+      "role": "USER",
+      "avatar": "https://kyruus-app-static.kyruus.com/providermatch/piedmont/photos/200/lemma-abiot-1184111411.jpg?1667514924460"
     }
   ],
-  "profile": {
-    "first": "Kostiantyn",
-    "lastname": "Veresiuk",
-    "age": 3,
-    "currency": "NZD",
-    "country": "Poland",
-    "city": "Krakow",
-    "username": "admin213",
-    "avatar": "https://yt3.ggpht.com/ytc/AAUvwngFzM_Rf6MNwOnFcuphoj93k7VFjlIrj-kSMxbh=s900-c-k-c0x00ffffff-no-rj"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Kostiantyn",
+      "lastname": "Veresiuk",
+      "age": 3,
+      "currency": "NZD",
+      "country": "Poland",
+      "city": "Krakow",
+      "username": "admin213",
+      "avatar": "https://yt3.ggpht.com/ytc/AAUvwngFzM_Rf6MNwOnFcuphoj93k7VFjlIrj-kSMxbh=s900-c-k-c0x00ffffff-no-rj"
+    },
+    {
+      "id": "2",
+      "first": "Radziwid",
+      "lastname": "Vengence",
+      "age": 3,
+      "currency": "NZD",
+      "country": "Poland",
+      "city": "Krakow",
+      "username": "oswald",
+      "avatar": "https://kyruus-app-static.kyruus.com/providermatch/piedmont/photos/200/lemma-abiot-1184111411.jpg?1667514924460"
+    }
+  ]
 }

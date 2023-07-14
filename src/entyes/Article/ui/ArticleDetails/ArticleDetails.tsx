@@ -23,6 +23,7 @@ import { TextSize } from "shared/ui/Text/Text"
 import { Icon } from "shared/ui/Icon/Icon"
 import EyeIcon from "shared/assets/icons/eye-20-20.svg"
 import CalendarIcon from "shared/assets/icons/calendar-20-20.svg"
+import { useInitialEffect } from "shared/lib/hooks/useInitialEffect"
 
 
 
@@ -76,12 +77,10 @@ export const ArticleDetails = memo(({className,id}:ArticleDetailsProps) =>  {
         }
     }, []);
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchArticleById(id || ""));
-        }
-    }, [dispatch, id]);
-
+    useInitialEffect(()=>{
+        dispatch(fetchArticleById(id || ""));
+    })
+    
     let content;
 
     if (isLoading) {

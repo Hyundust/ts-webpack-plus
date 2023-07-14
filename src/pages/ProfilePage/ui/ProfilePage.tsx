@@ -17,8 +17,9 @@ import { Country } from "entyes/Country"
 import { getProfileValidateError } from "entyes/Profile/model/selector/getProfileValidateError/getProfileValidateError"
 import { TextTheme } from "shared/ui/Text/Text"
 import { Text } from "shared/ui/Text/Text"
-
+import { useParams } from "react-router-dom"
 import { ValidateProfileError } from "entyes/Profile/model/types/profile"
+import { useInitialEffect } from "shared/lib/hooks/useInitialEffect"
 
 
 export interface ProfileProps{
@@ -37,19 +38,22 @@ const ProfilePage = ({className}: ProfileProps) =>  {
 
     const {t} = useTranslation()
     const dispatch = useAppDispatch();
+    const {id} = useParams<{id:string}>()
 
-    useEffect(() => {
-        if(__PROJECT__!== "storybook"){
-            dispatch(fetchProfileData());
-        }
-    }, [dispatch]);
+   
+   
 
     const formData  = useSelector(getProfileForm);
     const error  = useSelector(getProfileError);
     const loading = useSelector(getProfileLoading);
     const readonly = useSelector(getProfileReadOnly);
-    const profileErrors = useSelector(getProfileValidateError)
-    
+    const profileErrors = useSelector(getProfileValidateError);
+
+
+     useInitialEffect(()=>{
+        if(id){
+        dispatch(fetchProfileData(id));
+}})
     const validateErrorTranslates = {
         [ValidateProfileError .SERVER_ERROR]: t('SERVER ERROR'),
         [ValidateProfileError.INCORRECT_USER_COUNTRY]: t('Wrong region'),
