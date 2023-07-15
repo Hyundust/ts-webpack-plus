@@ -11,6 +11,8 @@ export const updateProfileData = createAsyncThunk<ProfileUser,void,ThunkConfig<V
 
     const formData = getProfileForm(getState());
     const errors = validateProfileData(formData);
+
+    
     if(errors.length){
         return rejectWithValue(errors);
     }

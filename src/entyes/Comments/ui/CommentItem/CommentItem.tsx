@@ -25,13 +25,21 @@ export const CommentItem = memo((props:CommentItemProps) =>  {
 
     const {t} = useTranslation()
 
-   
+    if (isLoading) {
+      return (
+          <div className={classNames(cls.CommentList, {}, [className])}>
+              <CommentCard isLoading />
+              <CommentCard isLoading />
+              <CommentCard isLoading />
+          </div>
+      );
+  }
 
     return (
         <div className={classNames(cls.CommentItem, {}, [className])}>
         {comments?.length ? (
           comments.map((comment) => (
-             <CommentCard comment={comment} className={cls.comment}/>
+             <CommentCard comment={comment} className={cls.comment} isLoading={isLoading}/>
           ))
         ) : (
           <Text text={t("There is no comments at the moment") || ""} />

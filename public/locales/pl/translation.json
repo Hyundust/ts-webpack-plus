@@ -12,7 +12,8 @@
   "Password": "Hasłó",
   "Log in into your account": "Zaloguj się do konta",
   "Something went wrong": {
-    "Try again": "Coś poszło nie tak.Sprobuj ponownie"
+    "Try again": "Coś poszło nie tak.Sprobuj ponownie",
+    " Try again": "Coś poszło nie tak, spróbuj ponownie"
   },
   "Log out": "Wyloguj się",
   "Profile Page": "Profile",

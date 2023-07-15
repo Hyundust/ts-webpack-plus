@@ -23,7 +23,7 @@ export const CommentCard = memo(({className,comment,isLoading}:CommentCardProps)
     const {t} = useTranslation()
 
    if(isLoading){
-            return  <div className={classNames(cls.CommentCard,{},[className])}>
+            return  <div className={classNames(cls.CommentCard,{},[className,cls.loading])}>
                 <div className={cls.header}>
 
                                 <Skeleton width={30} height={30} border="50%"/>
@@ -41,7 +41,7 @@ export const CommentCard = memo(({className,comment,isLoading}:CommentCardProps)
                            { comment?.user.avatar ? < Avatar size={30} src={comment?.user.avatar} /> : null}
                         
 
-                  <Text title = {comment?.user.username}/>
+                  <Text className={cls.username} title = {comment?.user.username}/>
 
             </AppLink>
            

@@ -77,6 +77,9 @@ export const Secondary: Story = {
 Secondary.decorators = [ThemeDecorator(Theme.Dark),StoreDecorator({
     articleDetails:{
         data:article
+    },
+    addComment:{
+        text:"Hello johny"
     }
     
 })]

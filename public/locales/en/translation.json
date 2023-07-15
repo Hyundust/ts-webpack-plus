@@ -12,7 +12,8 @@
   "Password": "Password",
   "Log in into your account": "Log in into your account",
   "Something went wrong": {
-    "Try again": "Something went wrong.Try again\n"
+    "Try again": "Something went wrong.Try again\n",
+    " Try again": "Something went wrong.Try Again"
   },
   "Log out": "Log out",
   "Profile Page": "Profile\n",

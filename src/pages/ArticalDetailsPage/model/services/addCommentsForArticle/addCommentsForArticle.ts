@@ -20,13 +20,14 @@ export const AddCommentForArticle = createAsyncThunk<
     const userData = getUserData(getState())
     const article = getArticleDetailsData(getState())
     
+    if(!userData || !article){
+      return rejectWithValue("No Data");
+  }
 
-    if(!userData || !text || !article){
-        return rejectWithValue("No Data");
-    }
+    
       try {
           const response = await extra.api.post<Comment>('/comments', {
-            articleId:article?.id,
+            articleId:article.id,
             userId:userData.id,
             text
 
@@ -35,8 +36,8 @@ export const AddCommentForArticle = createAsyncThunk<
           if (!response.data) {
               throw new Error();
           }
-
-            dispatch(fetchCommentsByArticleId(article.id))
+          
+          dispatch(fetchCommentsByArticleId(article.id))
           return response.data;
       } catch (e) {
           return rejectWithValue("error");
