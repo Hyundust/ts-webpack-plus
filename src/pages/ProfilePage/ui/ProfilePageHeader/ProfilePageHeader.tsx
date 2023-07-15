@@ -8,6 +8,8 @@ import { getProfileReadOnly } from "entyes/Profile/model/selector/getProfileRead
 import { useCallback } from "react"
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch"
 import { profileActions, updateProfileData } from "entyes/Profile"
+import { getProfileData } from "entyes/Profile/model/selector/getProfileData/getProfileData"
+import { getUserData } from "entyes/User"
 
 export interface ProfilePageHeaderProps{
     className?: string
@@ -20,6 +22,10 @@ export const ProfilePageHeader = ({className}:ProfilePageHeaderProps) =>  {
     const {t} = useTranslation()
     const readonly = useSelector(getProfileReadOnly)
     const dispatch = useAppDispatch();
+    const profileData = useSelector(getProfileData);
+    const authData = useSelector(getUserData)
+
+    const editAble = profileData?.id === authData?.id
 
 
     const onEdit = useCallback(()=>{
@@ -39,32 +45,35 @@ export const ProfilePageHeader = ({className}:ProfilePageHeaderProps) =>  {
         <div className={classNames(cls.ProfilePageHeader,{},[className])}>
                 
                         <Text title={t("User Profile") || "User Profile"}/>
-                         {readonly  ?(<Button onClick={onEdit}
-                                        theme={ThemeButton.OUTLINE}
-                                        className={cls.editBtn}>
-                                                {t("Edit")}
-                                    </Button>)
-                            
-                        :            (<>
-                                                <Button onClick={onCancelEdit}
-                                                            theme={ThemeButton.CONFIRM_RED}
-                                                            className={cls.editBtn}>
-                                                            {t("Cancel")}
-                                                </Button>
-                                                <Button onClick={onSave}
-                                                            theme={ThemeButton.CONFIRM_GREEN}
-                                                            className={cls.editBtn}>
-                                                            {t("Save")}
-                                                </Button>
-                                    </>
+                         {editAble && 
 
+                            (
+                            <div className = {cls.btnWrapper}>
+                                {readonly ?(
+                                            <Button onClick={onEdit}
+                                                    theme={ThemeButton.OUTLINE}
+                                                    className={cls.editBtn}>
+                                                    {t("Edit")}
+                                            </Button>)
+                    
+                                     : <>
+                                        <Button onClick={onCancelEdit}
+                                                    theme={ThemeButton.CONFIRM_RED}
+                                                    className={cls.editBtn}>
+                                                    {t("Cancel")}
+                                        </Button>
+                                        <Button onClick={onSave}
+                                                    theme={ThemeButton.CONFIRM_GREEN}
+                                                    className={cls.editBtn}>
+                                                    {t("Save")}
+                                        </Button>
+                                        </>
+                                }
+                    </div>
+                         )
 
-                        )
-                        
-                        }
-                            
-                
-        </div>
+                         }
+                        </div>
     )
 
 

@@ -11,16 +11,20 @@ import { addCommentFormActions, addCommentFormReducer } from "../model/slice/add
 import { ModuleLoad, ReducerList } from "shared/lib/components/ModLoader/ModuleLoader"
 import { TextAlign } from "shared/ui/Text/Text"
 import { Text } from "shared/ui/Text/Text"
-import { SentComments } from "../model/services/sentComments"
+
+
+
 export interface AddCommentsProps{
     className?: string
+    onSetComment:(text:string)=>void;
+
  }
 const reducers:ReducerList = {
     addComment:addCommentFormReducer
 }
 
 
-const AddCommentsForm = ({className}:AddCommentsProps) =>  {
+const AddCommentsForm = ({className,onSetComment}:AddCommentsProps) =>  {
 
     const {t} = useTranslation()
     const comData = useSelector(getCommentsText);
@@ -30,11 +34,13 @@ const AddCommentsForm = ({className}:AddCommentsProps) =>  {
 
     const onCommentTextChange = useCallback((value:string)=>{
             dispatch(addCommentFormActions.setText(value));
-    },[dispatch])
+            },[dispatch])
 
-    const onSentComment = useCallback(()=>{
-        dispatch(SentComments());
-},[dispatch])
+    const onCommentSet = useCallback(()=>{
+        onSetComment(comData||"");
+        onCommentTextChange("")
+        },[dispatch,onSetComment,onCommentTextChange])
+   
 
 
     if(comError){
@@ -54,7 +60,7 @@ const AddCommentsForm = ({className}:AddCommentsProps) =>  {
         <ModuleLoad reducers={reducers}>
                     <div className={classNames(cls.AddComments,{},[className])}>
                             <CustomInput className ={cls.input} placeholder={t("Add your comment") || ""} value={comData} onChange={onCommentTextChange} />
-                            <Button theme={ThemeButton.OUTLINE} onClick={onSentComment}>
+                            <Button theme={ThemeButton.OUTLINE} onClick={onCommentSet}>
                                         {t("Sent")|| ""}
                             </Button>
                     </div>
