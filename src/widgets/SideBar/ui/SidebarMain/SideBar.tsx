@@ -5,9 +5,9 @@ import { memo, useState } from 'react'
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher'
 import { LangSwitcher } from 'widgets/LangSwitcher/ui/LangSwitcher'
 import { Button, SizeButton, ThemeButton } from 'shared/ui/Button/Button'
-import { SideBarItemList } from 'widgets/SideBar/model/items'
 import { SideBarItem } from '../SidebarItem/SidebarItem'
-
+import { useSelector } from 'react-redux'
+import { getSideBarItems } from 'widgets/SideBar/model/selector/SideBarRouteSelector'
 
 
 // Define the type of props for the SideBar component
@@ -21,7 +21,7 @@ interface SideBarProps {
 export const SideBar = memo(({ className }: SideBarProps) => {
     // Declare state variable using the `useState` hook and set its initial value as `false`
     const [collapsed, setCollapsed] = useState(false)
-
+    const SideBarItemList = useSelector(getSideBarItems)
     // Define a function that toggles the value of `collapsed` when called
     const onToggle = () => {
         setCollapsed(prev => !prev)
