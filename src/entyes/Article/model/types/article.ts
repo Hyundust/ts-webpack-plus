@@ -4,6 +4,12 @@ export enum ArticleBlockType {
     TEXT = 'TEXT',
 }
 
+export enum ArticleView {
+    SMALL = "SMALL",
+    BIG = "BIG"
+   
+}
+
 export interface ArticleBlockBase {
     id: string;
     type: ArticleBlockType;
