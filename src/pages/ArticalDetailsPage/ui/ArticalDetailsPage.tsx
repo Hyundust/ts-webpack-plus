@@ -3,7 +3,7 @@ import cls from "./ArticalDetailsPage.module.scss"
 import { useTranslation } from "react-i18next"
 import { memo, useCallback } from "react"
 import { ArticleDetails } from "entyes/Article"
-import { useParams } from "react-router-dom"
+import { Navigate, useNavigate, useParams } from "react-router-dom"
 import { Text } from "shared/ui/Text/Text"
 import { CommentItem } from "entyes/Comments/ui/CommentItem/CommentItem"
 import { ModuleLoad, ReducerList } from "shared/lib/components/ModLoader/ModuleLoader"
@@ -16,6 +16,8 @@ import { fetchCommentsByArticleId } from "../model/services/fetchCommentsByArtic
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch"
 import { AddCommentForm } from "features/AddComment"
 import { AddCommentForArticle } from "../model/services/addCommentsForArticle/addCommentsForArticle"
+import { Button, ThemeButton } from "shared/ui/Button/Button"
+import { RoutePath } from "shared/config/routeConfig/routeConfig"
 
 export interface ArticalDetailsPageProps{
     className?: string
@@ -35,10 +37,12 @@ const ArticalDetailsPage = memo(({className}:ArticalDetailsPageProps) =>  {
     const commentIsLoading= useSelector(getArticleCommentsIsLoading);
     const commentError = useSelector(getArticleCommentsError);
     const dispatch = useAppDispatch()
-
+    const navigate = useNavigate();
 
     
-
+    const onBackToList = useCallback(()=>{
+            navigate(RoutePath.articals)
+    },[navigate])
 
 
    
@@ -62,6 +66,7 @@ const ArticalDetailsPage = memo(({className}:ArticalDetailsPageProps) =>  {
     return (
         <ModuleLoad reducers={reducers} removeAfterUnMount>
                     <div className={classNames(cls.ArticalDetails,{},[className])}>
+                        <Button theme={ThemeButton.OUTLINE} onClick={onBackToList}>{t("Back")}</Button>
                         <ArticleDetails id={id}/>
                         <Text className={cls.commentTitle} title = {t("Comments")|| ""}/>
                          <AddCommentForm onSetComment={onSetComment}/>

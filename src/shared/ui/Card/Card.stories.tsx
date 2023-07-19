@@ -1,9 +1,7 @@
-
-
 // We are importing the types `Meta` and `StoryObj` from `@storybook/react`
 import type { Meta, StoryObj } from '@storybook/react';
 // We are importing the `Button` and `ThemeButton` components from the './Button' file
-import { Code } from './Code';
+import { Card } from './Card';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from 'app/providers/themeProvider';
 import { Text } from '../Text/Text';
@@ -13,9 +11,9 @@ import { Text } from '../Text/Text';
 // `component` is the component that we are writing the story for.
 // `satisfies` property ensures that the `meta` object strictly follows the `Meta` type.
 const meta = {
-  title: 'shared/Code',
-  component: Code,
-} satisfies Meta<typeof Code>;
+  title: 'shared/Card',
+  component: Card,
+} satisfies Meta<typeof Card>;
 
 // Exporting the `meta` object as default.
 export default meta;
@@ -31,19 +29,11 @@ type Story = StoryObj<typeof meta>;
 // Both of these stories belongs to `Button` component.
 export const Light: Story = {
   args: {
-    text: 'export default {\n'
-    + '    title: \'shared/Code\',\n'
-    + '    component: Code,\n'
-    + '    argTypes: {\n'
-    + '        backgroundColor: { control: \'color\' },\n'
-    + '    },\n'
-    + '} as ComponentMeta<typeof Code>;\n'
-    + '\n'
-    + 'const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />;\n'
-    + '\n'
-    + 'export const Normal = Template.bind({});',
+    children:<Text title={"test"} text={"lol text"} />
 }
  
 };
 
   
+
+
