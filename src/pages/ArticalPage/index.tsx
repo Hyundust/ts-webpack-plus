@@ -1,3 +1,3 @@
 import { ArticalPageAsync as ArticalPage } from "./ui/ArticalPage.async"
-
-export {ArticalPage}
+import { ArticlePageScheme } from "./model/types/articleDetails"
+export {ArticalPage,ArticlePageScheme}

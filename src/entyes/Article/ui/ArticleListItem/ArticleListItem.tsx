@@ -29,9 +29,12 @@ export interface ArticleListItemProps{
     const { t } = useTranslation();
     const navigate = useNavigate();
 
-    const onOpenArticle = useCallback(() => {
-        navigate(RoutePath.articals_details + article.id);
-    }, [article.id, navigate]);
+    const onOpenArticle = useCallback(
+        () => navigate(RoutePath.articals_details + article.id),
+        [article.id, navigate]
+      );
+      
+      
 
     const types = <Text text={article.type.join(', ')} className={cls.types} />;
     const views = (
@@ -43,8 +46,7 @@ export interface ArticleListItemProps{
 
     if (view === ArticleView.BIG) {
         const textBlock = article.blocks.find(
-            (block) => block.type === ArticleBlockType.TEXT,
-        ) as ArticleTextBlock;
+                        (block): block is ArticleTextBlock => block.type === ArticleBlockType.TEXT);
 
         return (
             <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
