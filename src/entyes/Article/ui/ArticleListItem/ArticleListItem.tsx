@@ -48,29 +48,34 @@ export interface ArticleListItemProps{
         const textBlock = article.blocks.find(
                         (block): block is ArticleTextBlock => block.type === ArticleBlockType.TEXT);
 
-        return (
-            <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
-                <Card className={cls.card}>
-                    <div className={cls.header}>
-                        <Avatar size={30} src={article.user.id} />
-                        <Text text={article.user.username} className={cls.username} />
-                        <Text text={article.createdAt} className={cls.date} />
-                    </div>
-                    <Text title={article.title} className={cls.title} />
-                    {types}
-                    <img src={article.img} className={cls.img} alt={article.title} />
-                    {textBlock && (
-                        <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />
-                    )}
-                    <div className={cls.footer}>
-                        <Button onClick={onOpenArticle} theme={ThemeButton.OUTLINE}>
-                            {t('Read more')}
-                        </Button>
-                        {views}
-                    </div>
-                </Card>
-            </div>
-        );
+                        return (
+                            <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+                              <Card className={cls.card}>
+                                <div className={cls.header}>
+                                  {article.user && (
+                                    <>
+                                      <Avatar size={30} src={article.user.id} />
+                                      <Text text={article.user.username} className={cls.username} />
+                                      <Text text={article.createdAt} className={cls.date} />
+                                    </>
+                                  )}
+                                </div>
+                                <Text title={article.title} className={cls.title} />
+                                {types}
+                                <img src={article.img} className={cls.img} alt={article.title} />
+                                {textBlock && (
+                                  <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />
+                                )}
+                                <div className={cls.footer}>
+                                  <Button onClick={onOpenArticle} theme={ThemeButton.OUTLINE}>
+                                    {t('Read more')}
+                                  </Button>
+                                  {views}
+                                </div>
+                              </Card>
+                            </div>
+                          );
+                          
     }
 
     return (

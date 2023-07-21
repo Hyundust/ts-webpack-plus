@@ -33,6 +33,13 @@ const ArticalPage = memo(({className}:ArticalPageProps) =>  {
     const error = useSelector(getArticlePageError);
     const view = useSelector(getArticlePageView);
 
+
+    console.log("articles:", articles);
+    console.log("isLoading:", isLoading);
+    console.log("error:", error);
+    console.log("view:", view);
+
+
     const onChangeView = useCallback((view:ArticleView)=>{
         dispatch(ArticlePageActions.setView(view));
 
@@ -40,6 +47,7 @@ const ArticalPage = memo(({className}:ArticalPageProps) =>  {
 
     useInitialEffect(()=>{
         dispatch(fetchArticleList())
+        dispatch(ArticlePageActions.setInitialState())
     })
 
     return (
@@ -50,6 +58,7 @@ const ArticalPage = memo(({className}:ArticalPageProps) =>  {
                 isLoading = {isLoading}
                 view={view}
                 articles={articles}
+                
             />
         </div>
         </ModuleLoad>
