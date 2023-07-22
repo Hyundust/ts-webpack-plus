@@ -46,7 +46,7 @@ export const ArticleViewSelector = ({ className, view, onViewChange }: ArticleVi
     <div className={classNames(cls.ArticleViewSelector, {}, [className])}>
       {/* Mapping over the viewType array and rendering a Button component for each view type */}
       {viewType.map((type) => (
-        <Button theme={ThemeButton.CLEAR} onClick={onClick(type.view)}>
+        <Button key = {type.view} theme={ThemeButton.CLEAR} onClick={onClick(type.view)}>
           <Icon Svg={type.icon} className={classNames("", mods, [className])} />
         </Button>
       ))}

@@ -10,9 +10,10 @@ import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch"
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect"
 import { fetchArticleList } from "../model/service/fetchArticlesList"
 import { useSelector } from "react-redux"
-import { ArticleViewSelector, articleActions } from "entyes/Article"
-import { getArticleDetailsIsLoading } from "entyes/Article/model/selector/getArticleDetails"
-import { getArticlePageError, getArticlePageIsLoading, getArticlePageView } from "../model/selector/ArticlePageSelectors"
+import { ArticleViewSelector} from "entyes/Article"
+import { getArticlePageError, getArticlePageHasMore, getArticlePageInited, getArticlePageIsLoading, getArticlePageNumber, getArticlePageView } from "../model/selector/ArticlePageSelectors"
+import { Page } from "shared/ui/Page/Page"
+import { fetchNextArticlesPage } from "../model/service/fetchNextArticlesPage"
 
 export interface ArticalPageProps{
     className?: string
@@ -32,35 +33,45 @@ const ArticalPage = memo(({className}:ArticalPageProps) =>  {
     const isLoading = useSelector(getArticlePageIsLoading);
     const error = useSelector(getArticlePageError);
     const view = useSelector(getArticlePageView);
-
-
-    console.log("articles:", articles);
-    console.log("isLoading:", isLoading);
-    console.log("error:", error);
-    console.log("view:", view);
+    const page = useSelector(getArticlePageNumber)
+    const hasMore = useSelector(getArticlePageHasMore)
+    const inited = useSelector(getArticlePageInited)
 
 
     const onChangeView = useCallback((view:ArticleView)=>{
         dispatch(ArticlePageActions.setView(view));
 
-    },[dispatch])
+    },[dispatch]);
 
+    const onLoadNextPart = useCallback(()=>{
+      
+        dispatch(fetchNextArticlesPage())
+
+     } ,[dispatch])
+
+     
     useInitialEffect(()=>{
-        dispatch(fetchArticleList())
-        dispatch(ArticlePageActions.setInitialState())
-    })
+        if(!inited){
+        dispatch(ArticlePageActions.setInitialState());
+
+        dispatch(fetchArticleList({
+            page:1
+
+        }))
+       
+    }})
 
     return (
         <ModuleLoad reducers={reducers}>
-        <div className={classNames(cls.ArticalPage,{},[className])}>
+        <Page onScrollEnd = {onLoadNextPart} className={classNames(cls.ArticalPage,{},[className])}>
                 <ArticleViewSelector view={view} onViewChange={onChangeView}/>
                 <ArticleList
                 isLoading = {isLoading}
                 view={view}
                 articles={articles}
-                
+
             />
-        </div>
+        </Page>
         </ModuleLoad>
     )
 

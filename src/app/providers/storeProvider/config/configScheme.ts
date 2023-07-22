@@ -27,7 +27,7 @@ export interface StateScheme{
 
 }
 export type StateSchemeKey = keyof StateScheme;
-
+export type MountedReducers = OptionalRecord<StateSchemeKey,boolean>
 
 export interface ReducerManager{
 
@@ -35,6 +35,8 @@ export interface ReducerManager{
   reduce:(state: StateScheme, action: AnyAction)=>CombinedState<StateScheme>,
   add:(key:StateSchemeKey, reducer:Reducer)=>void
   remove:(key:StateSchemeKey)=>void
+  //true - mounted,false - unmounted
+  getMountedReducers:()=>MountedReducers
 
 }
 
@@ -45,7 +47,7 @@ export interface reduxStoreWithManager extends EnhancedStore<StateScheme> {
 
 export interface ThunkExtraArg{
   api:AxiosInstance
-  navigate?:(to: To, options?: NavigateOptions)=> void
+  
 }
 
 export interface ThunkConfig<T>{

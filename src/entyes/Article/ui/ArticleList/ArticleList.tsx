@@ -25,18 +25,21 @@ export const ArticleList: React.FC<ArticleListProps> = ({
   const skeletonCount = view === ArticleView.SMALL ? 9 : 3;
 
   const getSkeletons = (view: ArticleView) =>
-    Array.from({ length: skeletonCount }, (_, index) => (
+    Array.from({length: skeletonCount }, (_, index) => (
       <ArticleListItemSkeleton className={cls.card} key={index} view={view} />
     ));
 
   const renderArticle = (article: Article) => (
-    <ArticleListItem article={article} view={view} className={cls.card} key={article?.id} />
+    <ArticleListItem article={article} 
+                     view={view} 
+                     className={cls.card}
+                     key={article?.id} />
   );
 
   return (
-    <div className={classNames(cls.ArticleList, {}, [className])}>
+    <div className={classNames(cls.ArticleList, {}, [className,cls[view]])}>
       {isLoading ? (
-        <div className={cls.classNamesList}>{getSkeletons(view)}</div>
+        <>{getSkeletons(view)}</>
       ) : (
         articles?.map(renderArticle)
       )}

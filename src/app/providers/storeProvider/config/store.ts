@@ -11,7 +11,7 @@ import { Reducer } from "@reduxjs/toolkit"
 export function createReduxStore(
     initialState?: StateScheme,
     asyncReducers?:ReducersMapObject<StateScheme>,
-    navigate?:(to: To, options?: NavigateOptions)=> void
+  
     ) {
 
   const rootReducers: ReducersMapObject<StateScheme, any> = {
@@ -31,7 +31,7 @@ export function createReduxStore(
       thunk:{
         extraArgument:{
           api:$api,
-          navigate
+         
         }
       }
     })

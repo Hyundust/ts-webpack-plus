@@ -3,7 +3,7 @@ import cls from "./ArticalDetailsPage.module.scss"
 import { useTranslation } from "react-i18next"
 import { memo, useCallback } from "react"
 import { ArticleDetails } from "entyes/Article"
-import { Navigate, useNavigate, useParams } from "react-router-dom"
+import {  useNavigate, useParams } from "react-router-dom"
 import { Text } from "shared/ui/Text/Text"
 import { CommentItem } from "entyes/Comments/ui/CommentItem/CommentItem"
 import { ModuleLoad, ReducerList } from "shared/lib/components/ModLoader/ModuleLoader"
@@ -18,6 +18,7 @@ import { AddCommentForm } from "features/AddComment"
 import { AddCommentForArticle } from "../model/services/addCommentsForArticle/addCommentsForArticle"
 import { Button, ThemeButton } from "shared/ui/Button/Button"
 import { RoutePath } from "shared/config/routeConfig/routeConfig"
+import { Page } from "shared/ui/Page/Page"
 
 export interface ArticalDetailsPageProps{
     className?: string
@@ -58,20 +59,20 @@ const ArticalDetailsPage = memo(({className}:ArticalDetailsPageProps) =>  {
 
 
     if(!id){
-        <div className={classNames(cls.ArticalDetails,{},[className])}>
+        <Page className={classNames(cls.ArticalDetails,{},[className])}>
             {t("Article not found")}
-    </div>
+         </Page>
     }
 
     return (
         <ModuleLoad reducers={reducers} removeAfterUnMount>
-                    <div className={classNames(cls.ArticalDetails,{},[className])}>
+                    <Page className={classNames(cls.ArticalDetails,{},[className])}>
                         <Button theme={ThemeButton.OUTLINE} onClick={onBackToList}>{t("Back")}</Button>
                         <ArticleDetails id={id}/>
                         <Text className={cls.commentTitle} title = {t("Comments")|| ""}/>
                          <AddCommentForm onSetComment={onSetComment}/>
                         <CommentItem isLoading = {commentIsLoading} comments={comments}/>
-                    </div>  
+                    </Page>  
         </ModuleLoad>
     )
 

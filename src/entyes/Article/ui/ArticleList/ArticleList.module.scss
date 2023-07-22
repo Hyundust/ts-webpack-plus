@@ -1,6 +1,7 @@
 .BIG {
     .card {
         margin-bottom: 30px;
+        
     }
 }
 
@@ -11,5 +12,6 @@
     .card {
         margin-right: 30px;
         margin-bottom: 30px;
+        flex-direction: row;
     }
 }

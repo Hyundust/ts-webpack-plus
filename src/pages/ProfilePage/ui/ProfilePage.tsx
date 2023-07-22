@@ -20,6 +20,7 @@ import { Text } from "shared/ui/Text/Text"
 import { useParams } from "react-router-dom"
 import { ValidateProfileError } from "entyes/Profile/model/types/profile"
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect"
+import { Page } from "shared/ui/Page/Page"
 
 
 export interface ProfileProps{
@@ -98,7 +99,7 @@ const ProfilePage = ({className}: ProfileProps) =>  {
    console.log(profileErrors)
     return (
         <ModuleLoad reducers={reducers} removeAfterUnMount>
-            <div className={classNames('', {}, [className])}>
+            <Page className={classNames('', {}, [className])}>
 
                 <ProfilePageHeader/>
                 {profileErrors?.length && profileErrors.map((err)=>(
@@ -117,7 +118,7 @@ const ProfilePage = ({className}: ProfileProps) =>  {
                              OnChangeCurrency = {OnChangeCurrency }
                              OnChangeCountry={OnChangeCountry}
                              />
-            </div>
+            </Page>
         </ModuleLoad>
         
     )
