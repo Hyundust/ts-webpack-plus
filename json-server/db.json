@@ -19,7 +19,7 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "userId":"1",
+      "userId": "1",
       "type": [
         "IT"
       ],
@@ -91,7 +91,7 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "userId":"1",
+      "userId": "1",
       "type": [
         "IT"
       ],
@@ -155,14 +155,15 @@
           ]
         }
       ]
-    },{
+    },
+    {
       "id": "3",
       "title": "Javascript news",
       "subtitle": "What's new in JS for 2022?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "userId":"1",
+      "userId": "1",
       "type": [
         "IT"
       ],
@@ -226,14 +227,15 @@
           ]
         }
       ]
-    },{
+    },
+    {
       "id": "4",
       "title": "Javascript news",
       "subtitle": "What's new in JS for 2022?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "userId":"1",
+      "userId": "1",
       "type": [
         "IT"
       ],
@@ -297,14 +299,15 @@
           ]
         }
       ]
-    },{
+    },
+    {
       "id": "5",
       "title": "Javascript news",
       "subtitle": "What's new in JS for 2022?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "userId":"1",
+      "userId": "1",
       "type": [
         "IT"
       ],
@@ -368,14 +371,15 @@
           ]
         }
       ]
-    },{
+    },
+    {
       "id": "6",
       "title": "Javascript news",
       "subtitle": "What's new in JS for 2022?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "userId":"1",
+      "userId": "1",
       "type": [
         "IT"
       ],
@@ -439,14 +443,15 @@
           ]
         }
       ]
-    },{
+    },
+    {
       "id": "7",
       "title": "Javascript news",
       "subtitle": "What's new in JS for 2022?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "userId":"1",
+      "userId": "1",
       "type": [
         "IT"
       ],
@@ -510,14 +515,15 @@
           ]
         }
       ]
-    },{
+    },
+    {
       "id": "8",
       "title": "Javascript news",
       "subtitle": "What's new in JS for 2022?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "userId":"1",
+      "userId": "1",
       "type": [
         "IT"
       ],
@@ -581,14 +587,15 @@
           ]
         }
       ]
-    },{
+    },
+    {
       "id": "9",
       "title": "Javascript news",
       "subtitle": "What's new in JS for 2022?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "userId":"1",
+      "userId": "1",
       "type": [
         "IT"
       ],
@@ -652,14 +659,15 @@
           ]
         }
       ]
-    },{
+    },
+    {
       "id": "10",
       "title": "Javascript news",
       "subtitle": "What's new in JS for 2022?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "userId":"1",
+      "userId": "1",
       "type": [
         "IT"
       ],
@@ -723,14 +731,15 @@
           ]
         }
       ]
-    },{
+    },
+    {
       "id": "11",
       "title": "Javascript news",
       "subtitle": "What's new in JS for 2022?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "userId":"1",
+      "userId": "1",
       "type": [
         "IT"
       ],
@@ -820,6 +829,12 @@
       "userId": "1",
       "text": "Cum",
       "id": "P2sF-aV"
+    },
+    {
+      "articleId": "2",
+      "userId": "1",
+      "text": "top g here",
+      "id": "QsvX4e1"
     }
   ],
   "users": [

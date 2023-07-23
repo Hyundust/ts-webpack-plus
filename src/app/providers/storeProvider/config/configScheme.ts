@@ -12,10 +12,12 @@ import { ArticleDetailsSchema } from "entyes/Article/model/types/articleDetailsS
 import { ArticleDetailsCommentScheme } from "pages/ArticalDetailsPage"
 import { addCommentFormScheme } from "features/AddComment"
 import { ArticlePageScheme } from "pages/ArticalPage"
+import { ScrollSaverScheme } from "features/ScrollSaver/model/types/ScrollSaverScheme"
 
 export interface StateScheme{
   counter:CounterScheme
   user:UserScheme
+  scrollSaver:ScrollSaverScheme
   //async reducer
   loginForm?:LoginScheme
   profile?:ProfileScheme

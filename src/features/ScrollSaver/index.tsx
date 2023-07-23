@@ -1,0 +1,1 @@
+export {ScrollScheme} from "./model/types/ScrollSaverScheme"

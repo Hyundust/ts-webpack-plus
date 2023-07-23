@@ -12,7 +12,7 @@ import { fetchArticleList } from "../model/service/fetchArticlesList"
 import { useSelector } from "react-redux"
 import { ArticleViewSelector} from "entyes/Article"
 import { getArticlePageError, getArticlePageHasMore, getArticlePageInited, getArticlePageIsLoading, getArticlePageNumber, getArticlePageView } from "../model/selector/ArticlePageSelectors"
-import { Page } from "shared/ui/Page/Page"
+import { Page } from "widgets/Page/Page"
 import { fetchNextArticlesPage } from "../model/service/fetchNextArticlesPage"
 
 export interface ArticalPageProps{

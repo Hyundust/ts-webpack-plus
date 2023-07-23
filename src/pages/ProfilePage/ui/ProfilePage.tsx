@@ -20,7 +20,7 @@ import { Text } from "shared/ui/Text/Text"
 import { useParams } from "react-router-dom"
 import { ValidateProfileError } from "entyes/Profile/model/types/profile"
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect"
-import { Page } from "shared/ui/Page/Page"
+import { Page } from "widgets/Page/Page"
 
 
 export interface ProfileProps{
