@@ -5,7 +5,12 @@ export enum ArticleBlockType {
     IMAGE = 'IMAGE',
     TEXT = 'TEXT',
 }
-
+export enum ArticleSortField {
+    VIEWS = 'views',
+    TITLE = 'title',
+    CREATED = 'createdAt',
+    
+}
 export enum ArticleView {
     SMALL = "SMALL",
     BIG = "BIG"

@@ -3,17 +3,16 @@ import cls from "./ArticalPage.module.scss"
 import { useTranslation } from "react-i18next"
 import { memo, useCallback } from "react"
 import { ArticleList } from "entyes/Article/ui/ArticleList/ArticleList"
-import { ArticleView } from "entyes/Article/model/types/article"
 import { ModuleLoad, ReducerList } from "shared/lib/components/ModLoader/ModuleLoader"
 import { ArticlePageActions, ArticlePageReducer, ArticlePageSlice, getArticlesPage } from "../model/slice/articlePageSlice"
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch"
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect"
 import { fetchArticleList } from "../model/service/fetchArticlesList"
 import { useSelector } from "react-redux"
-import { ArticleViewSelector} from "entyes/Article"
 import { getArticlePageError, getArticlePageHasMore, getArticlePageInited, getArticlePageIsLoading, getArticlePageNumber, getArticlePageView } from "../model/selector/ArticlePageSelectors"
 import { Page } from "widgets/Page/Page"
 import { fetchNextArticlesPage } from "../model/service/fetchNextArticlesPage"
+import { ArticalPageFilters } from "./ArticalPageFilters/ui/ArticalPageFilters"
 
 export interface ArticalPageProps{
     className?: string
@@ -38,10 +37,7 @@ const ArticalPage = memo(({className}:ArticalPageProps) =>  {
     const inited = useSelector(getArticlePageInited)
 
 
-    const onChangeView = useCallback((view:ArticleView)=>{
-        dispatch(ArticlePageActions.setView(view));
-
-    },[dispatch]);
+   
 
     const onLoadNextPart = useCallback(()=>{
       
@@ -54,21 +50,19 @@ const ArticalPage = memo(({className}:ArticalPageProps) =>  {
         if(!inited){
         dispatch(ArticlePageActions.setInitialState());
 
-        dispatch(fetchArticleList({
-            page:1
-
-        }))
+        dispatch(fetchArticleList({}))
        
     }})
 
     return (
         <ModuleLoad reducers={reducers}>
         <Page onScrollEnd = {onLoadNextPart} className={classNames(cls.ArticalPage,{},[className])}>
-                <ArticleViewSelector view={view} onViewChange={onChangeView}/>
+            <ArticalPageFilters/>
                 <ArticleList
                 isLoading = {isLoading}
                 view={view}
                 articles={articles}
+                className={cls.List}
 
             />
         </Page>

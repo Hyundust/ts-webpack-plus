@@ -38,7 +38,7 @@ export const Page = ({ className, children, onScrollEnd }: PageProps) => {
     if (wrapperRef.current && scrollPosition !== undefined) {
       wrapperRef.current.scrollTop = scrollPosition;
     }
-  });
+  }); 
 
   const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
     console.log("scroll made", e.currentTarget?.scrollTop);
@@ -55,7 +55,9 @@ export const Page = ({ className, children, onScrollEnd }: PageProps) => {
           className={classNames(cls.Page, {}, [className])}
         >
           {children}
-          <div ref={triggerRef} />
+          {onScrollEnd ?
+                          <div className={cls.trigger} ref={triggerRef} /> 
+                       :  null}
         </section>
       );
 };
