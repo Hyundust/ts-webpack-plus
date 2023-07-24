@@ -1,7 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/storeProvider';
-import { Article } from 'entyes/Article/model/types/article';
-import { getArticlePageLimit, getArticlePageNumber, getArticlePageOrder, getArticlePageSearch, getArticlePageSort } from '../selector/ArticlePageSelectors';
+import { Article, ArticleType } from 'entyes/Article/model/types/article';
+import { getArticlePageLimit, getArticlePageNumber, getArticlePageOrder, getArticlePageSearch, getArticlePageSort, getArticlePageType } from '../selector/ArticlePageSelectors';
+import { addQueryParams } from 'shared/lib/url/AddQueryParams/addQueryParams';
 
 // Define the interface for page pagination props
 interface fetchArticleListProps{
@@ -24,15 +25,20 @@ export const fetchArticleList = createAsyncThunk<
         const order = getArticlePageOrder(getState()); // Get the article page order from the state using a selector.
         const search = getArticlePageSearch(getState());
         const page = getArticlePageNumber(getState()) // Get the article page search from the state using a selector.
-
+        const type = getArticlePageType(getState())
         try {
+
+            addQueryParams({
+                sort,order,search,type
+            })
             const response = await extra.api.get<Article[]>(`/articles`,{ // Make an asynchronous API request
                 params: {
                     _expand:"user", // Query parameter for expanding the "user" field
                     _limit:limit, // Query parameter for the limit of articles per page
                     _page:page, // Query parameter for the current page number
                     _sort:sort, // Query parameter for sorting the articles
-                    _order:order, // Query parameter for specifying the order (ascending or descending)
+                    _order:order,//// Query parameter for specifying the order (ascending or descending)
+                    _type:type === ArticleType.ALL ? undefined : type,// Query parameter for specifying the type
                     q:search // Query parameter for searching articles based on a given string
                 }
             });

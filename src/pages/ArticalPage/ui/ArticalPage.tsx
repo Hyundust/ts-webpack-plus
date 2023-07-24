@@ -13,6 +13,9 @@ import { getArticlePageError, getArticlePageHasMore, getArticlePageInited, getAr
 import { Page } from "widgets/Page/Page"
 import { fetchNextArticlesPage } from "../model/service/fetchNextArticlesPage"
 import { ArticalPageFilters } from "./ArticalPageFilters/ui/ArticalPageFilters"
+import { useSearchParams } from "react-router-dom"
+import { initArticlesPage } from "../model/service/initArticlesPage"
+
 
 export interface ArticalPageProps{
     className?: string
@@ -37,22 +40,26 @@ const ArticalPage = memo(({className}:ArticalPageProps) =>  {
     const inited = useSelector(getArticlePageInited)
 
 
+    const [searchParams] = useSearchParams();
+
    
 
     const onLoadNextPart = useCallback(()=>{
       
-        dispatch(fetchNextArticlesPage())
+        dispatch(fetchNextArticlesPage(
+            
+        ))
 
      } ,[dispatch])
 
      
     useInitialEffect(()=>{
-        if(!inited){
-        dispatch(ArticlePageActions.setInitialState());
+        
+        dispatch(initArticlesPage(searchParams));
 
-        dispatch(fetchArticleList({}))
+        
        
-    }})
+    })
 
     return (
         <ModuleLoad reducers={reducers}>

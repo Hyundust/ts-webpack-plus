@@ -3,3 +3,9 @@
     border-radius: 12px;
     background: var(--bg-card);
 }
+.normal{
+        background: var(--bg-card);
+}
+.outlined{
+    background: 1px solid var(--primary-color);
+}

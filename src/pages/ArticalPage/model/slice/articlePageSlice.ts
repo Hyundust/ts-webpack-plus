@@ -1,6 +1,6 @@
 import { PayloadAction, createEntityAdapter, createSlice } from '@reduxjs/toolkit'
 import { StateScheme } from 'app/providers/storeProvider'
-import { Article, ArticleSortField, ArticleView } from 'entyes/Article/model/types/article'
+import { Article, ArticleSortField, ArticleType, ArticleView } from 'entyes/Article/model/types/article'
 import { ArticlePageScheme } from '../types/articleDetails'
 import { fetchArticleList } from '../service/fetchArticlesList'
 import { ARTICLE_VIEW_STORAGE_KEY } from 'shared/const/localstorage'
@@ -30,7 +30,8 @@ export const ArticlePageSlice = createSlice({
         search:"",
         limit:9,
         sort:ArticleSortField.TITLE,
-        order:"asc"
+        order:"asc",
+        type:ArticleType.ALL
         
 
   }),
@@ -59,14 +60,19 @@ export const ArticlePageSlice = createSlice({
     },
     setPagePagination:(state, action: PayloadAction<number>)=>{
             state.page = action.payload;
+        },
+    setType:(state,action:PayloadAction<ArticleType>)=>{
+            state.type= action.payload
+          
         }
     },
+    
     extraReducers(builder) {
     builder
         .addCase(fetchArticleList.pending, (state,action) => {
             state.error = undefined;
             state.isLoading = true;
-            
+
             if(action.meta.arg.replaced){
                 articlesAdapter.removeAll(state);
             }
@@ -77,7 +83,7 @@ export const ArticlePageSlice = createSlice({
             action ,
         ) => {
             state.isLoading = false;
-            state.hasMore = action.payload.length > 0 ;
+            state.hasMore = action.payload.length >= (state.limit || 0 ) ;
 
             if(action.meta.arg.replaced){
                 articlesAdapter.setAll(state,action.payload);
