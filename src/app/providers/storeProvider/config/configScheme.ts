@@ -8,12 +8,13 @@ import { CombinedState} from "@reduxjs/toolkit"
 import { ProfileScheme } from "entyes/Profile"
 import { AxiosInstance } from "axios"
 import { To,NavigateOptions } from "react-router-dom"
-import { ArticleDetailsSchema } from "entyes/Article/model/types/articleDetailsScheme"
+import {  ArticleDetailsScheme } from "entyes/Article/model/types/articleDetailsScheme"
 import { ArticleDetailsCommentScheme } from "pages/ArticalDetailsPage"
 import { addCommentFormScheme } from "features/AddComment"
 import { ArticlePageScheme } from "pages/ArticalPage"
 import { ScrollSaverScheme } from "features/ScrollSaver/model/types/ScrollSaverScheme"
-
+import { ArticleDetailsPageRecomendationScheme } from "pages/ArticalDetailsPage/model/types/ArticleDetailsPageRecomendationScheme"
+import { articleDetailsPageScheme } from "pages/ArticalDetailsPage/model/types"
 export interface StateScheme{
   counter:CounterScheme
   user:UserScheme
@@ -21,10 +22,10 @@ export interface StateScheme{
   //async reducer
   loginForm?:LoginScheme
   profile?:ProfileScheme
-  articleDetails?:ArticleDetailsSchema
-  articleDetailsComments?:ArticleDetailsCommentScheme
+  articleDetails?:ArticleDetailsScheme
   addComment?:addCommentFormScheme
   articlesPage?:ArticlePageScheme
+  articleDetailsPage?:articleDetailsPageScheme
   
 
 }

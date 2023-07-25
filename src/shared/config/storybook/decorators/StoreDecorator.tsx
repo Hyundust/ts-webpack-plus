@@ -9,6 +9,7 @@ import { ReducerList } from "shared/lib/components/ModLoader/ModuleLoader";
 import { articleReducer } from "entyes/Article";
 import { addCommentFormReducer } from "features/AddComment/model/slice/addCommentFormSlice";
 import { articleDetailsCommentsReducer } from "pages/ArticalDetailsPage/model/slice/ArticleDetailsCommentSlice";
+import { articleDetailsPageReducer } from "pages/ArticalDetailsPage/model/slice";
 
 // Defining defaultReducers object with loginForm reducer
 const defaultAsyncReducers: ReducerList = {
@@ -16,7 +17,7 @@ const defaultAsyncReducers: ReducerList = {
     profile:profileReducer,
     articleDetails:articleReducer,
     addComment:addCommentFormReducer,
-    articleDetailsComments:articleDetailsCommentsReducer
+    articleDetailsPage:articleDetailsPageReducer
   };
   
 

@@ -15,12 +15,12 @@ export function createReduxStore(
   
     ) {
 
-  const rootReducers: ReducersMapObject<StateScheme, any> = {
+  const rootReducers: ReducersMapObject<StateScheme> = {
     ...asyncReducers,
     user: userReducer,
     counter: counterReducer,
-    scrollSaver:scrollSaverReducer
-    
+    scrollSaver:scrollSaverReducer,
+   
   }
   const reducerManager = createReducerManager(rootReducers);
 

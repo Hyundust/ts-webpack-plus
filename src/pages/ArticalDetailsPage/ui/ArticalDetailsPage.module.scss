@@ -4,3 +4,10 @@
 .commentTitle{
     margin-top: 20px;
 }
+.recommendations {
+    margin-top: 20px; // Adds a top margin of 20 pixels to the .recommendations element
+    flex-wrap: nowrap; // Disables wrapping of flex items within the .recommendations element
+    overflow-y: hidden; // Hides any content that overflows vertically within the .recommendations element
+    overflow-x: auto; // Auto-scrolls horizontally if content within the .recommendations element overflows
+}
+

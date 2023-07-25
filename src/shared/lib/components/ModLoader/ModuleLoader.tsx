@@ -4,9 +4,10 @@ import { reduxStoreWithManager } from "app/providers/storeProvider"; // Importin
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch";
 import { StateSchemeKey } from "app/providers/storeProvider/config/configScheme";
 import { Reducer } from "@reduxjs/toolkit";
+import { StateScheme } from "app/providers/storeProvider/config/configScheme";
 
 export type ReducerList = {
-  [name in StateSchemeKey]?: Reducer; 
+  [name in StateSchemeKey]?: Reducer<NonNullable<StateScheme[name]>>; 
 };
 
 export interface ModuleLoadProps {

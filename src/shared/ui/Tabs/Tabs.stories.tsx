@@ -38,7 +38,7 @@ export const Normal: Story = {
     },
     {
       value:"tab3",
-      content:  "tab3"
+      content:  "tab3" 
     }
     
 

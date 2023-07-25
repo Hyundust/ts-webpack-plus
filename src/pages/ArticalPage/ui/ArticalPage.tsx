@@ -78,4 +78,4 @@ const ArticalPage = memo(({className}:ArticalPageProps) =>  {
 
 
 })
-export default ArticalPage
+export default ArticalPage  

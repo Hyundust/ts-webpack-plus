@@ -38,7 +38,7 @@ export const fetchArticleList = createAsyncThunk<
                     _page:page, // Query parameter for the current page number
                     _sort:sort, // Query parameter for sorting the articles
                     _order:order,//// Query parameter for specifying the order (ascending or descending)
-                    _type:type === ArticleType.ALL ? undefined : type,// Query parameter for specifying the type
+                    type:type === ArticleType.ALL ? undefined : type,// Query parameter for specifying the type
                     q:search // Query parameter for searching articles based on a given string
                 }
             });
