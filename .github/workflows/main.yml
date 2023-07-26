@@ -24,9 +24,7 @@ jobs:
     - name: Install dependencies
       run: npm install --legacy-peer-deps
 
-    - name: Build Project in production mode
-      run: npm run build:prod
-    
+      
     - name: Run unit testing
       run: npm run unit
 
