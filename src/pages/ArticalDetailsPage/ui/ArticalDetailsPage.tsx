@@ -24,10 +24,13 @@ import { getArticleRecomendationError, getArticleRecomendationIsLoading } from "
 import { ArticleList } from "entyes/Article/ui/ArticleList/ArticleList"
 import { fetchArticleRecommendations } from "../model/services/fetchArticleRecommendations/fetchArticleRecommendations"
 import { articleDetailsPageReducer } from "../model/slice"
+import { ArticalDetailsPageHeader } from "./ArticalDetailsPageHeader/ArticalDetailsPageHeader"
+import { Article } from "entyes/Article/model/types/article"
 
 
 export interface ArticalDetailsPageProps{
     className?: string
+   
  }
 const reducers:ReducerList = {
     articleDetailsPage:articleDetailsPageReducer
@@ -48,12 +51,9 @@ const ArticalDetailsPage = memo(({className}:ArticalDetailsPageProps) =>  {
     const recommendationsError = useSelector(getArticleRecomendationError);
 
     const dispatch = useAppDispatch()
-    const navigate = useNavigate();
+    
 
     
-    const onBackToList = useCallback(()=>{
-            navigate(RoutePath.articals)
-    },[navigate])
 
 
    
@@ -78,11 +78,7 @@ const ArticalDetailsPage = memo(({className}:ArticalDetailsPageProps) =>  {
     return (
         <ModuleLoad reducers={reducers} removeAfterUnMount>
                     <Page className={classNames(cls.ArticalDetails,{},[className])}>
-                        <Button 
-                                theme={ThemeButton.OUTLINE} 
-                                onClick={onBackToList}>
-                                        {t("Back")}
-                                </Button>
+                    <ArticalDetailsPageHeader />
                         <ArticleDetails id={id}/>
                         <Text size={TextSize.L} 
                               className={cls.commentTitle} 
