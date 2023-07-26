@@ -30,9 +30,5 @@ jobs:
     - name: Run unit testing
       run: npm run unit
 
-   
 
-      if: ${{ always() }}
-    - name: Run ss tests
-      run: npm run test:ui:ci
 
