@@ -16,7 +16,7 @@ export interface PageProps {
   children: ReactNode;
   onScrollEnd?: () => void;
 }
-
+export const PAGE_ID = "PAGE_id"
 export const Page = ({ className, children, onScrollEnd }: PageProps) => {
 
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -53,6 +53,7 @@ export const Page = ({ className, children, onScrollEnd }: PageProps) => {
           onScroll={onScroll}
           ref={wrapperRef}
           className={classNames(cls.Page, {}, [className])}
+          id={PAGE_ID}
         >
           {children}
           {onScrollEnd ?

@@ -12,16 +12,16 @@ export default (env: BuildEnv) => {
         build: path.resolve(__dirname, 'build'),
         html: path.resolve(__dirname, 'public', 'index.html'),
         src: path.resolve(__dirname, 'src'),
-        locales: path.resolve(__dirname, 'public',"locales"),
-        buildLocales:path.resolve(__dirname, 'build',"locales"),
+        locales: path.resolve(__dirname, 'public', 'locales'),
+        buildLocales: path.resolve(__dirname, 'build', 'locales'),
     }
 
     // Define the program mode based on the runtime environment.
     const mode = env.mode || 'development'
     const PORT = env.port || 3000
-    const isDev = (mode === 'development')
-    const apiUrl =  env.apiUrl || "http://localhost:8000"
+    const apiUrl = env.apiUrl || 'http://localhost:8000'
     
+    const isDev = (mode === 'development')
     // Create a Webpack configuration using appropriate options.
 
     const config: webpack.Configuration = buildWebpackConfig({
