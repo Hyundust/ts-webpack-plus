@@ -3,21 +3,12 @@ import "app/styles/index.scss";
 import { StoryFn } from "@storybook/react";
 import { StateScheme, StoreProvider } from "app/providers/storeProvider";
 import {  ReducersMapObject } from "@reduxjs/toolkit";
-import { loginReducer } from "features/AuthByUsername/model/slice/loginSlice";
-import { profileReducer } from "entyes/Profile";
 import { ReducerList } from "shared/lib/components/ModLoader/ModuleLoader";
-import { articleReducer } from "entyes/Article";
-import { addCommentFormReducer } from "features/AddComment/model/slice/addCommentFormSlice";
-import { articleDetailsCommentsReducer } from "pages/ArticalDetailsPage/model/slice/ArticleDetailsCommentSlice";
-import { articleDetailsPageReducer } from "pages/ArticalDetailsPage/model/slice";
+
 
 // Defining defaultReducers object with loginForm reducer
 const defaultAsyncReducers: ReducerList = {
-    loginForm: loginReducer,
-    profile:profileReducer,
-    articleDetails:articleReducer,
-    addComment:addCommentFormReducer,
-    articleDetailsPage:articleDetailsPageReducer
+    
   };
   
 

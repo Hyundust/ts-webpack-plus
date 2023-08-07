@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom'; // Importing the Route and Rou
 import { AppRoutesProps, RouteConfig } from 'shared/config/routeConfig/routeConfig'; // Importing AppRoutes and RouteConfig from shared/config/routeConfig/routeConfig
 import { PageLoader } from 'widgets/PageLoader/PageLoader'; // Importing the PageLoader component from widgets/PageLoader/PageLoader
 import { memo } from 'react'; // Importing the memo function from React
-import { RequireAuth } from './RequireAuth';
+
 
 // Defining the AppRouter functional component
 const AppRouter = () => {
@@ -26,7 +26,6 @@ const AppRouter = () => {
             <Route
                 key={route.path}
                 path={route.path}
-                element={route.authOnly ? <RequireAuth children={element}/> : element}
             />
         );
     }, []);

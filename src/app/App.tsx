@@ -7,19 +7,14 @@ import { Navbar } from 'widgets/NavBar'
 import { SideBar } from 'widgets/SideBar'
 import { Suspense, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { userActions } from 'entyes/User'
 import { useSelector } from 'react-redux'
-import { getUserInitialized } from 'entyes/User/ui/selector/getUserInitialized'
+
 
 
 
 const App = () => {
     const dispatch = useDispatch();
-    const initialized = useSelector(getUserInitialized)
-
-    useEffect(()=>{
-        dispatch(userActions.initAuthData())
-    },[dispatch])
+    
     
     return (
 
@@ -28,7 +23,7 @@ const App = () => {
                 <Navbar/>
                 <div className='content-page'>
                     <SideBar/>
-                   {initialized && <AppRouter/>}
+                  <AppRouter/>
                 </div>  
             </Suspense>
         </div>
